@@ -31,7 +31,7 @@ class _MyPasswordFieldState extends State<MyPasswordField> {
         contentPadding: EdgeInsets.zero,
         hintText: widget.hintText,
         filled: true,
-        fillColor: Colors.white,
+        fillColor: AppColor.green,
         prefixIcon: const Icon(
           Icons.lock,
           color: AppColor.blue,

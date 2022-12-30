@@ -1,4 +1,5 @@
 import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
+import 'package:cauvongstore_mobile/src/screen/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,7 +26,7 @@ class NavDrawerWidget extends StatelessWidget {
         color: AppColor.kPrimaryColor,
         child: ListView(
           children: <Widget> [
-            SizedBox(
+           const SizedBox(
               height: 100,
               child: DrawerHeader (
                 decoration: BoxDecoration(
@@ -35,12 +36,12 @@ class NavDrawerWidget extends StatelessWidget {
                   // ])
                   color: Colors.white,
                 ), child: Text (
-                  'Rent Bike',
+                  'Cửa hàng cầu vòng',
                   textAlign: TextAlign.center,
                   style: TextStyle (
                       color: Colors.black,
-                      fontWeight:FontWeight.w600,
-                      fontSize: 40,
+                      // fontWeight:FontWeight.w600,
+                      fontSize: 20,
                   ),
               ),
               ),
@@ -48,58 +49,58 @@ class NavDrawerWidget extends StatelessWidget {
             //const SizedBox (height: 10),
             //padding:padding,
             buildMenuItem(
-              text: 'Statistics',
+              text: 'Login',
               icon: Icons.car_repair,
               onClicked: () => selectedItem (context,0),
             ),
-            //const SizedBox (height: 20),
+            // //const SizedBox (height: 20),
             buildMenuItem(
-              text:"Vehicle List",
+              text:"Profile",
               icon: Icons.motorcycle,
               onClicked: () => selectedItem (context,1),
             ),
-            //const SizedBox (height: 20),
-            buildMenuItem(
-              text: "Customer List",
-              icon: Icons.person,
-              onClicked: () => selectedItem (context,2),
-            ),
-            //const SizedBox (height: 20),
-            buildMenuItem(
-              text: "Vehicle Fees",
-              icon: Icons.alarm,
-              onClicked: () => selectedItem (context,3),
-            ),
-            //const SizedBox (height: 20),
-            buildMenuItem(
-              text: "Vehicle Registration",
-              icon: Icons.app_registration,
-              onClicked: () => selectedItem (context,4),
-            ),
-            //const SizedBox (height: 10),
-            buildMenuItem(
-              text: "Customer Registration",
-              icon:Icons.person,
-              onClicked: () => selectedItem (context,5),
-            ),
-            //const SizedBox (height: 20),
-            buildMenuItem(
-              text: "Vehicle Rental Registration",
-              icon:Icons.doorbell,
-              onClicked: () => selectedItem (context,6),
-            ),
-            //const SizedBox (height: 20),
-            buildMenuItem(
-              text: "Repair Vehicle Registration",
-              icon:  Icons.home_repair_service,
-              onClicked: () => selectedItem (context,7),
-            ),
+            // //const SizedBox (height: 20),
+            // buildMenuItem(
+            //   text: "Customer List",
+            //   icon: Icons.person,
+            //   onClicked: () => selectedItem (context,2),
+            // ),
+            // //const SizedBox (height: 20),
+            // buildMenuItem(
+            //   text: "Vehicle Fees",
+            //   icon: Icons.alarm,
+            //   onClicked: () => selectedItem (context,3),
+            // ),
+            // //const SizedBox (height: 20),
+            // buildMenuItem(
+            //   text: "Vehicle Registration",
+            //   icon: Icons.app_registration,
+            //   onClicked: () => selectedItem (context,4),
+            // ),
+            // //const SizedBox (height: 10),
+            // buildMenuItem(
+            //   text: "Customer Registration",
+            //   icon:Icons.person,
+            //   onClicked: () => selectedItem (context,5),
+            // ),
+            // //const SizedBox (height: 20),
+            // buildMenuItem(
+            //   text: "Vehicle Rental Registration",
+            //   icon:Icons.doorbell,
+            //   onClicked: () => selectedItem (context,6),
+            // ),
+            // //const SizedBox (height: 20),
+            // buildMenuItem(
+            //   text: "Repair Vehicle Registration",
+            //   icon:  Icons.home_repair_service,
+            //   onClicked: () => selectedItem (context,7),
+            // ),
 
-            buildMenuItem(
-              text: "Event Calendar",
-              icon: Icons.calendar_today_outlined,
-              onClicked: () => selectedItem (context,8),
-            ),
+            // buildMenuItem(
+            //   text: "Event Calendar",
+            //   icon: Icons.calendar_today_outlined,
+            //   onClicked: () => selectedItem (context,8),
+            // ),
             SizedBox(
               height: 2.0,
               child: new Center(
@@ -150,7 +151,7 @@ void selectedItem(BuildContext context, int index) {
       break;
     case 1:
       Navigator.of(context ).push(MaterialPageRoute(
-        builder: (context) => const LoginPage(),
+        builder: (context) => const ProfilePage(),
       ));
       break;
     case 2:
