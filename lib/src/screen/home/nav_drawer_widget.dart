@@ -20,7 +20,7 @@ class NavDrawerWidget extends StatelessWidget {
             // For iOS.
             // Use [dark] for white status bar and [light] for black status bar.
             statusBarBrightness: Brightness.light,
-            systemNavigationBarColor: AppColor.kPrimaryColor,
+            systemNavigationBarColor: Colors.black,
           ),
       child: Material (
         color: AppColor.kPrimaryColor,

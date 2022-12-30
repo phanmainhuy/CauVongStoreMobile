@@ -6,6 +6,8 @@ import 'package:cauvongstore_mobile/src/screen/home/home_page.dart';
 import 'package:cauvongstore_mobile/src/utils/validator.dart';
 import 'package:flutter/material.dart';
 
+import '../register/register_page.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
   // TextEditingController password;
@@ -100,7 +102,7 @@ class LoginPage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return HomePage();
+                            return RegisterPage();
                           },
                         ),
                       ),
