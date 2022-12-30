@@ -7,7 +7,7 @@ import 'package:cauvongstore_mobile/src/utils/validator.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key? key}) : super(key: key);
   // TextEditingController password;
   // TextEditingController email;
   // GlobalKey<FormState> formKey;
@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppColor.yellow,
+      backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
           child: Form(

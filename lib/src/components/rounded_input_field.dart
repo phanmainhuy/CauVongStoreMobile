@@ -29,7 +29,7 @@ class RoundedInputField extends StatelessWidget {
       decoration: InputDecoration(
         contentPadding: EdgeInsets.zero,
         filled: true,
-        fillColor: Colors.white,
+        fillColor: AppColor.green,
         prefixIcon: Icon(
           icon,
           color: AppColor.blue,
