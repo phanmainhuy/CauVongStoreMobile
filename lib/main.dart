@@ -1,6 +1,5 @@
-import 'package:cau_vong_store/src/services/local/shared_prefs.dart';
+import 'package:cauvongstore_mobile/src/services/local/shared_prefs.dart';
 import 'package:flutter/material.dart';
-
 
 import 'src/application.dart';
 import 'src/base/di/locator.dart';

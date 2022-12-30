@@ -1,22 +1,20 @@
-import 'package:cau_vong_store/src/components/rounded_input_field.dart';
-import 'package:cau_vong_store/src/components/rounded_password_field.dart';
-import 'package:cau_vong_store/src/resources/app_color.dart';
-import 'package:cau_vong_store/src/resources/app_drawable.dart';
-import 'package:cau_vong_store/src/screen/home/home_page.dart';
-import 'package:cau_vong_store/src/utils/validator.dart';
+import 'package:cauvongstore_mobile/src/components/rounded_input_field.dart';
+import 'package:cauvongstore_mobile/src/components/rounded_password_field.dart';
+import 'package:cauvongstore_mobile/src/resources/app_color.dart';
+import 'package:cauvongstore_mobile/src/resources/app_drawable.dart';
+import 'package:cauvongstore_mobile/src/screen/home/home_page.dart';
+import 'package:cauvongstore_mobile/src/utils/validator.dart';
 import 'package:flutter/material.dart';
 
-
-
 class LoginPage extends StatelessWidget {
-  LoginPage({ Key? key }) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
   // TextEditingController password;
   // TextEditingController email;
   // GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) {
-        Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColor.yellow,
       body: Center(
@@ -117,8 +115,9 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+
 class buildRememberPassword extends StatefulWidget {
-  const buildRememberPassword({ Key? key }) : super(key: key);
+  const buildRememberPassword({Key? key}) : super(key: key);
 
   @override
   State<buildRememberPassword> createState() => _buildRememberPasswordState();
@@ -128,19 +127,19 @@ class _buildRememberPasswordState extends State<buildRememberPassword> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-          width: 330,
-          height: 50,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              CheckBoxRemember(
-                value: true,
-                // onChanged: ,
-              ),
-              const Text('Lưu mật khẩu'),
-            ],
+      width: 330,
+      height: 50,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          CheckBoxRemember(
+            value: true,
+            // onChanged: ,
           ),
-        );
+          const Text('Lưu mật khẩu'),
+        ],
+      ),
+    );
   }
 }
 
@@ -148,9 +147,10 @@ class CheckBoxRemember extends StatelessWidget {
   // final VoidCallback onChanged;
   final bool value;
 
-  const CheckBoxRemember({Key? key, 
-  // final ValueChanged<bool>? onChanged;
-  this.value = false})
+  const CheckBoxRemember(
+      {Key? key,
+      // final ValueChanged<bool>? onChanged;
+      this.value = false})
       : super(key: key);
 
   @override
@@ -172,38 +172,37 @@ class CheckBoxRemember extends StatelessWidget {
     return Checkbox(
       checkColor: Colors.white,
       fillColor: MaterialStateProperty.resolveWith(getColor),
-      value: value, onChanged: (bool? value) {  },
+      value: value, onChanged: (bool? value) {},
       // onChanged?.call(value ?? false);
     );
   }
 }
 
 class buildLoginButton extends StatelessWidget {
-  buildLoginButton({ Key? key }) : super(key: key);
+  buildLoginButton({Key? key}) : super(key: key);
   bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-          width: 330,
-          height: 50,
-          child: isLoading
-              ? const Center(child: CircularProgressIndicator())
-              : ElevatedButton(
-                  child: Text("Đăng nhập".toUpperCase(),
-                      style: const TextStyle(fontSize: 15)),
-                  style: ButtonStyle(
-                      padding: MaterialStateProperty.all<EdgeInsets>(
-                          const EdgeInsets.all(15)),
-                      foregroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(AppColor.blue),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(19.0),
-                              side: const BorderSide(color: Colors.white)))),
-                  onPressed: ()=> {},
-     )
-      );
+        width: 330,
+        height: 50,
+        child: isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : ElevatedButton(
+                child: Text("Đăng nhập".toUpperCase(),
+                    style: const TextStyle(fontSize: 15)),
+                style: ButtonStyle(
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                        const EdgeInsets.all(15)),
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(AppColor.blue),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(19.0),
+                            side: const BorderSide(color: Colors.white)))),
+                onPressed: () => {},
+              ));
   }
 }

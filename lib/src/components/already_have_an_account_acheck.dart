@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:cau_vong_store/src/resources/app_color.dart';
+import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 
 class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final bool login;
