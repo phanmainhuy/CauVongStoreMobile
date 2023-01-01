@@ -146,15 +146,10 @@ class ProfilePage extends StatelessWidget {
                     ),
 
                     const SizedBox(height: 30,),
-                    Row(
-                      children: [
-                        const SizedBox(height: 5,),
+
                         MyButton(
                       name: "Sửa thông tin",
                       onPressed: () {},
-                    ),
-                    const SizedBox(height: 5,),
-                      ],
                     ),
                     
                   ],
