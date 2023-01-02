@@ -1,3 +1,4 @@
+import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
 import 'package:cauvongstore_mobile/src/screen/profile/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -40,14 +41,12 @@ class NavDrawerWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black,
-                      // fontWeight:FontWeight.w600,
+                      fontWeight: FontWeight.w600,
                       fontSize: 20,
                     ),
                   ),
                 ),
               ),
-              //const SizedBox (height: 10),
-              //padding:padding,
               buildMenuItem(
                 text: 'Login',
                 icon: Icons.car_repair,
@@ -56,57 +55,19 @@ class NavDrawerWidget extends StatelessWidget {
               // //const SizedBox (height: 20),
               buildMenuItem(
                 text: "Profile",
-                icon: Icons.motorcycle,
+                icon: Icons.account_balance_outlined,
                 onClicked: () => selectedItem(context, 1),
               ),
-              // //const SizedBox (height: 20),
-              // buildMenuItem(
-              //   text: "Customer List",
-              //   icon: Icons.person,
-              //   onClicked: () => selectedItem (context,2),
-              // ),
-              // //const SizedBox (height: 20),
-              // buildMenuItem(
-              //   text: "Vehicle Fees",
-              //   icon: Icons.alarm,
-              //   onClicked: () => selectedItem (context,3),
-              // ),
-              // //const SizedBox (height: 20),
-              // buildMenuItem(
-              //   text: "Vehicle Registration",
-              //   icon: Icons.app_registration,
-              //   onClicked: () => selectedItem (context,4),
-              // ),
-              // //const SizedBox (height: 10),
-              // buildMenuItem(
-              //   text: "Customer Registration",
-              //   icon:Icons.person,
-              //   onClicked: () => selectedItem (context,5),
-              // ),
-              // //const SizedBox (height: 20),
-              // buildMenuItem(
-              //   text: "Vehicle Rental Registration",
-              //   icon:Icons.doorbell,
-              //   onClicked: () => selectedItem (context,6),
-              // ),
-              // //const SizedBox (height: 20),
-              // buildMenuItem(
-              //   text: "Repair Vehicle Registration",
-              //   icon:  Icons.home_repair_service,
-              //   onClicked: () => selectedItem (context,7),
-              // ),
-
-              // buildMenuItem(
-              //   text: "Event Calendar",
-              //   icon: Icons.calendar_today_outlined,
-              //   onClicked: () => selectedItem (context,8),
-              // ),
+              buildMenuItem(
+                  text: 'Cart',
+                  icon: Icons.shopping_cart,
+                  onClicked: () => selectedItem(context, 2)),
               SizedBox(
                 height: 2.0,
-                child: new Center(
-                  child: new Container(
+                child: Center(
+                  child: Container(
                     margin:
-                        new EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+                        const EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
                     height: 5.0,
                     color: Colors.white70,
                   ),
@@ -126,13 +87,13 @@ class NavDrawerWidget extends StatelessWidget {
 
   Widget buildMenuItem(
       {required String text, required IconData icon, VoidCallback? onClicked}) {
-    final color = Colors.white;
-    final hoverColor = Colors.white70;
+    const color = Colors.white;
+    const hoverColor = Colors.white70;
 
     return ListTile(
       leading: Icon(icon, color: color),
       title: Text(text,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 17,
             color: color,
           )),
@@ -157,7 +118,7 @@ void selectedItem(BuildContext context, int index) {
       break;
     case 2:
       Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => const LoginPage(),
+        builder: (context) => const CartPage(),
       ));
       break;
     case 3:

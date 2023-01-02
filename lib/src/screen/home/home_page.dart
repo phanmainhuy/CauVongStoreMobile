@@ -1,3 +1,4 @@
+import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../resources/app_color.dart';
@@ -26,6 +27,18 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Home Page'),
         backgroundColor: AppColor.kPrimaryColor,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.shopping_cart,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => CartPage()));
+            },
+          )
+        ],
       ),
       drawer: NavDrawerWidget(),
       bottomNavigationBar: BottomNavigationBar(
@@ -48,11 +61,11 @@ class _HomePageState extends State<HomePage> {
             label: "Products",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pages),
+            icon: Icon(Icons.discount),
             label: "Promotion",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.badge),
+            icon: Icon(Icons.shopping_cart),
             label: "Cart",
           ),
           BottomNavigationBarItem(
