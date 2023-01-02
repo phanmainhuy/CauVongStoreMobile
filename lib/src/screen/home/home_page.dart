@@ -6,7 +6,7 @@ import '../profile/profile_page.dart';
 import 'nav_drawer_widget.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({ Key? key }) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   PageController pageController = PageController();
-  int pageIndex =1;
+  int pageIndex = 1;
   List<Widget> pageList = <Widget>[
     NotificationPage(),
     HomePage(),
@@ -29,16 +29,19 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: NavDrawerWidget(),
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: pageIndex,
-          onTap: (value) {//change page
-            setState((){
-              pageIndex = value;
-            });
-            pageController.animateToPage(pageIndex, duration: const Duration(milliseconds: 500),curve: Curves.easeIn);
-          },
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: AppColor.kPrimaryColor,
-          unselectedItemColor: AppColor.kFontColor,
+        currentIndex: pageIndex,
+        onTap: (value) {
+          //change page
+          setState(() {
+            pageIndex = value;
+          });
+          pageController.animateToPage(pageIndex,
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeIn);
+        },
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: AppColor.kPrimaryColor,
+        unselectedItemColor: AppColor.kFontColor,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.category),

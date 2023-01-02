@@ -213,7 +213,7 @@ class _RegisterPage extends StatelessWidget {
                       side: const BorderSide(color: Colors.white)))),
           onPressed: () {
             Navigator.push(
-              context, MaterialPageRoute(builder: (context) => HomePage()));
+                context, MaterialPageRoute(builder: (context) => HomePage()));
           },
         ),
       );

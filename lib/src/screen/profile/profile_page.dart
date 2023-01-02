@@ -4,13 +4,11 @@ import '../../resources/app_color.dart';
 import '../../resources/app_drawable.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) :super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Thông tin người dùng'),
@@ -22,7 +20,6 @@ class ProfilePage extends StatelessWidget {
             children: <Widget>[
               const SizedBox(height: 20),
               AppDrawable.logo(width: size.width * 0.35),
-
               const SizedBox(height: 20),
               const Text(
                 'Phan Mai Như Ý',
@@ -37,7 +34,7 @@ class ProfilePage extends StatelessWidget {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const[
+                      children: const [
                         SizedBox(
                           width: 60,
                           height: 50,
@@ -64,7 +61,7 @@ class ProfilePage extends StatelessWidget {
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const[
+                      children: const [
                         SizedBox(
                           width: 60,
                           height: 50,
@@ -93,7 +90,7 @@ class ProfilePage extends StatelessWidget {
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const[
+                      children: const [
                         SizedBox(
                           width: 60,
                           height: 50,
@@ -120,7 +117,7 @@ class ProfilePage extends StatelessWidget {
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const[
+                      children: const [
                         SizedBox(
                           width: 75,
                           height: 50,
@@ -145,16 +142,16 @@ class ProfilePage extends StatelessWidget {
                       ],
                     ),
 
-                    const SizedBox(height: 30,),
+                    const SizedBox(
+                      height: 30,
+                    ),
 
-                        MyButton(
+                    MyButton(
                       name: "Sửa thông tin",
                       onPressed: () {},
                     ),
-                    
                   ],
                 ),
-
 
                 // const Text(
                 //   'Test',
@@ -165,11 +162,7 @@ class ProfilePage extends StatelessWidget {
                 // ),
 
                 //build profile
-
               ),
-
-
-
             ],
           ),
         ),
