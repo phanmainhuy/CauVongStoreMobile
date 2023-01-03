@@ -33,8 +33,13 @@ class _CartPageState extends State<CartPage> {
       ),
       body: Column(
         children: [
-          Expanded(child: _buildCard),
-          _buildButton(context),
+          Expanded(
+            child: _buildCard,
+          ),
+          // Expanded(
+          //   child: _buildTotal(10000),
+          // ),
+          _buildButtonPurchase(context),
           const SizedBox(
             height: 10,
           )
@@ -70,11 +75,12 @@ class _CartPageState extends State<CartPage> {
           ),
         ),
       );
+  // Widget _buildButtonCart(BuildContext context) => Column(
+  //       children: [],
+  //     );
 
-  Widget _buildButton(BuildContext context) => Column(
+  Widget _buildButtonPurchase(BuildContext context) => Column(
         children: [
-          const SizedBox(height: 10),
-          // _buildTotal,
           const SizedBox(height: 10),
           MyButton(
             name: "Đặt hàng",
@@ -88,6 +94,25 @@ class _CartPageState extends State<CartPage> {
           // ),
         ],
       );
+
+  Widget _buildTotal(int totalPrice) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              "Total",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            Text(
+              totalPrice.toString(),
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: 20, color: Colors.red),
+            ),
+          ],
+        ),
+      );
+
   //Set cung data
   void _createCartData() {
     var list = <CartProductModel>[
