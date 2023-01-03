@@ -13,7 +13,7 @@ class ProfilePage extends StatelessWidget {
         .size;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Thông tin người dùng'),
+        title: const Text('Thông tin tài khoản'),
         backgroundColor: AppColor.kPrimaryColor,
       ),
       body: SafeArea(
@@ -31,7 +31,7 @@ class ProfilePage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 70),
+              const SizedBox(height: 50),
               Expanded(
                 child: Column(
                   children: [
@@ -146,16 +146,15 @@ class ProfilePage extends StatelessWidget {
                     ),
 
                     const SizedBox(height: 30,),
-                    Row(
-                      children: [
-                        const SizedBox(height: 5,),
-                        MyButton(
+                    const SizedBox(
+                      width: 400,
+                      child: MyButton(
                       name: "Sửa thông tin",
-                      onPressed: () {},
+                      // onPressed: () => {},
                     ),
-                    const SizedBox(height: 5,),
-                      ],
-                    ),
+                      ),
+                        
+                   
                     
                   ],
                 ),

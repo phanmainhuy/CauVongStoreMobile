@@ -131,6 +131,24 @@ class _RegisterPage extends StatelessWidget {
         const SizedBox(height: 10),
         SizedBox(
           width: 330,
+          child: MyPasswordField(
+            hintText: 'Nhập lại mật khẩu',
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Phải nhập mật khẩu';
+              }
+
+              if (value.length < 8) {
+                return 'Mật khẩu phải lớn hơn 8 kí tự';
+              }
+
+              return null;
+            },
+          ),
+        ),
+        const SizedBox(height: 10),
+        SizedBox(
+          width: 330,
           child: RoundedInputField(
             icon: Icons.phone,
             hintText: "Số điện thoại",

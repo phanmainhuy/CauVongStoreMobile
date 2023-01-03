@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
                   child: RoundedInputField(
                     icon: Icons.person,
                     keyboardType: TextInputType.emailAddress,
-                    hintText: "Email",
+                    hintText: "Email hoặc số điện thoại",
                     // controller: email,
                     validator: (value) {
                       if (value == null || value.isEmpty) {

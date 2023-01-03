@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../resources/app_color.dart';
+
 class MyButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String name;
@@ -15,9 +17,18 @@ class MyButton extends StatelessWidget {
       child: ElevatedButton(
         child: Text(
           name,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white, fontSize: 17),
         ),
-        // color: const Color(0xff746bc9),
+         style: ButtonStyle(
+              // padding: MaterialStateProperty.all<EdgeInsets>(
+              //     const EdgeInsets.all(15)),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              backgroundColor: MaterialStateProperty.all<Color>(AppColor.blue),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(19.0),
+                      side: const BorderSide(color: Colors.white)))),
+         
         onPressed: onPressed,
       ),
     );
