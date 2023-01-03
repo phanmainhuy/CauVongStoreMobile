@@ -41,116 +41,121 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Home Page'),
-          backgroundColor: AppColor.kPrimaryColor,
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(
-                Icons.shopping_cart,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CartPage()));
-              },
-            )
-          ],
-        ),
-        drawer: NavDrawerWidget(),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: pageIndex,
-          onTap: (value) {
-            //change page
-            setState(() {
-              pageIndex = value;
-            });
-            pageController.animateToPage(pageIndex,
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeIn);
-          },
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: AppColor.kPrimaryColor,
-          unselectedItemColor: AppColor.kFontColor,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.category),
-              label: "Products",
+      appBar: AppBar(
+        title: Text('Home Page'),
+        backgroundColor: AppColor.kPrimaryColor,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.shopping_cart,
+              color: Colors.white,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.discount),
-              label: "Promotion",
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => CartPage()));
+            },
+          )
+        ],
+      ),
+      drawer: NavDrawerWidget(),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: pageIndex,
+        onTap: (value) {
+          //change page
+          setState(() {
+            pageIndex = value;
+          });
+          pageController.animateToPage(pageIndex,
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeIn);
+        },
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: AppColor.kPrimaryColor,
+        unselectedItemColor: AppColor.kFontColor,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: "Products",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.discount),
+            label: "Promotion",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: "Cart",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: "Notification",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+        ],
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          // carousel
+          CarouselSlider(
+            options: CarouselOptions(
+              aspectRatio: 2.0,
+              enlargeCenterPage: true,
+              enableInfiniteScroll: false,
+              initialPage: 2,
+              autoPlay: true,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
-              label: "Cart",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
-              label: "Notification",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Profile",
-            ),
-          ],
-        ),
-        body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              // carousel
-              CarouselSlider(
-                options: CarouselOptions(
-                  aspectRatio: 2.0,
-                  enlargeCenterPage: true,
-                  enableInfiniteScroll: false,
-                  initialPage: 2,
-                  autoPlay: true,
+            items: _buildImageSliders,
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+              child: GridView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: _products.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 1,
+                  mainAxisExtent: 150,
                 ),
-                items: _buildImageSliders,
-              ),
-              Expanded(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
-                  child: GridView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: _products.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 250,
-                            childAspectRatio: 3 / 2,
-                            crossAxisSpacing: 20,
-                            mainAxisSpacing: 20),
-                    itemBuilder: (context, index) => ItemCard(
-                      product: _products[index],
-                      press: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => CartPage()
-                            // DetailsScreen(
-                            //   product: _products[index],
-                            // ),
-                            ),
-                      ),
-                    ),
+                itemBuilder: (context, index) => ItemCard(
+                  product: _products[index],
+                  press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CartPage()
+                        // DetailsScreen(
+                        //   product: _products[index],
+                        // ),
+                        ),
                   ),
                 ),
               ),
-              // const SizedBox(height: 10),
-              // Container(
-              //   padding: const EdgeInsets.all(kDefaultPaddin),
-              //   width: 120,
-              //   height: 200,
-              //   decoration: BoxDecoration(
-              //     color: Colors.blue,
-              //     borderRadius: BorderRadius.circular(16),
-              //   ),
-              //   child: Hero(
-              //     tag: "Lốc 4 hộp sữa dinh dưỡng",
-              //     child: Image.network(_products[0].image),
-              //   ),
-              // )
-            ]));
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+              child: GridView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: _products.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 1,
+                  mainAxisExtent: 150,
+                ),
+                itemBuilder: (context, index) => ItemCard(
+                  product: _products[index],
+                  press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CartPage()),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   List<Widget> get _buildImageSliders => imgList
