@@ -1,3 +1,4 @@
+import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../resources/app_color.dart';
@@ -6,7 +7,7 @@ import '../profile/profile_page.dart';
 import 'nav_drawer_widget.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({ Key? key }) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -14,7 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   PageController pageController = PageController();
-  int pageIndex =1;
+  int pageIndex = 1;
   List<Widget> pageList = <Widget>[
     NotificationPage(),
     HomePage(),
@@ -26,30 +27,45 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Home Page'),
         backgroundColor: AppColor.kPrimaryColor,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.shopping_cart,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => CartPage()));
+            },
+          )
+        ],
       ),
       drawer: NavDrawerWidget(),
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: pageIndex,
-          onTap: (value) {//change page
-            setState((){
-              pageIndex = value;
-            });
-            pageController.animateToPage(pageIndex, duration: const Duration(milliseconds: 500),curve: Curves.easeIn);
-          },
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: AppColor.kPrimaryColor,
-          unselectedItemColor: AppColor.kFontColor,
+        currentIndex: pageIndex,
+        onTap: (value) {
+          //change page
+          setState(() {
+            pageIndex = value;
+          });
+          pageController.animateToPage(pageIndex,
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeIn);
+        },
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: AppColor.kPrimaryColor,
+        unselectedItemColor: AppColor.kFontColor,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
             label: "Products",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pages),
+            icon: Icon(Icons.discount),
             label: "Promotion",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.badge),
+            icon: Icon(Icons.shopping_cart),
             label: "Cart",
           ),
           BottomNavigationBarItem(

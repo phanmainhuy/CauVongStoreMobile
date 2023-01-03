@@ -205,8 +205,8 @@ class buildLoginButton extends StatelessWidget {
                             borderRadius: BorderRadius.circular(19.0),
                             side: const BorderSide(color: Colors.white)))),
                 onPressed: () => {
-                  Navigator.push(
-              context, MaterialPageRoute(builder: (context) => HomePage()))
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomePage()))
                 },
               ));
   }
