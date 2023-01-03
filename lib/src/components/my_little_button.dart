@@ -1,18 +1,18 @@
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:flutter/material.dart';
 
-class MyButton extends StatelessWidget {
+class MyLittleButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String name;
 
-  const MyButton({required this.name, this.onPressed, Key? key})
+  const MyLittleButton({required this.name, this.onPressed, Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 45,
-      width: double.infinity,
+      height: 30,
+      width: 50,
       child: ElevatedButton(
         child: Text(
           name,

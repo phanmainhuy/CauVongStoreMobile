@@ -1,9 +1,12 @@
+import 'package:cauvongstore_mobile/src/model/product_model.dart';
+import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../../resources/app_color.dart';
 import '../notification/notification_page.dart';
 import '../profile/profile_page.dart';
+import 'item_card.dart';
 import 'nav_drawer_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,6 +23,7 @@ class _HomePageState extends State<HomePage> {
     'assets/images/slides/slide3.jpg',
     'assets/images/slides/slide4.jpg',
   ];
+  List<ProductModel> _products = <ProductModel>[];
   PageController pageController = PageController();
   int pageIndex = 1;
   List<Widget> pageList = <Widget>[
@@ -28,6 +32,12 @@ class _HomePageState extends State<HomePage> {
     ProfilePage(),
     NotificationPage(),
   ];
+  @override
+  void initState() {
+    super.initState();
+    _createProductData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,19 +95,62 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        body: Column(children: <Widget>[
-          CarouselSlider(
-            options: CarouselOptions(
-              aspectRatio: 2.0,
-              enlargeCenterPage: true,
-              enableInfiniteScroll: false,
-              initialPage: 2,
-              autoPlay: true,
-            ),
-            items: _buildImageSliders,
-          ),
-          const SizedBox(height: 10),
-        ]));
+        body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              // carousel
+              CarouselSlider(
+                options: CarouselOptions(
+                  aspectRatio: 2.0,
+                  enlargeCenterPage: true,
+                  enableInfiniteScroll: false,
+                  initialPage: 2,
+                  autoPlay: true,
+                ),
+                items: _buildImageSliders,
+              ),
+              Expanded(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+                  child: GridView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: _products.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithMaxCrossAxisExtent(
+                            maxCrossAxisExtent: 250,
+                            childAspectRatio: 3 / 2,
+                            crossAxisSpacing: 20,
+                            mainAxisSpacing: 20),
+                    itemBuilder: (context, index) => ItemCard(
+                      product: _products[index],
+                      press: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CartPage()
+                            // DetailsScreen(
+                            //   product: _products[index],
+                            // ),
+                            ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              // const SizedBox(height: 10),
+              // Container(
+              //   padding: const EdgeInsets.all(kDefaultPaddin),
+              //   width: 120,
+              //   height: 200,
+              //   decoration: BoxDecoration(
+              //     color: Colors.blue,
+              //     borderRadius: BorderRadius.circular(16),
+              //   ),
+              //   child: Hero(
+              //     tag: "Lốc 4 hộp sữa dinh dưỡng",
+              //     child: Image.network(_products[0].image),
+              //   ),
+              // )
+            ]));
   }
 
   List<Widget> get _buildImageSliders => imgList
@@ -131,4 +184,55 @@ class _HomePageState extends State<HomePage> {
                 )),
           ))
       .toList();
+
+  //Set cung data
+  void _createProductData() {
+    var list = <ProductModel>[
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '123',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '123',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '123',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '123',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '123',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '123',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          categoryId: '1'),
+    ];
+    setState(() {
+      _products = list;
+    });
+  }
 }
