@@ -1,6 +1,5 @@
+import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:flutter/material.dart';
-
-import '../resources/app_color.dart';
 
 class MyButton extends StatelessWidget {
   final VoidCallback? onPressed;

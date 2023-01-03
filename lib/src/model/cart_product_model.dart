@@ -1,5 +1,5 @@
 class CartProductModel {
-  final String productId;
+  // final String productId;
   final String id;
   final String name;
   final String image;
@@ -7,7 +7,7 @@ class CartProductModel {
   final String userId;
 
   CartProductModel({
-    required this.productId,
+    // required this.productId,
     this.price,
     required this.id,
     required this.name,
@@ -15,14 +15,14 @@ class CartProductModel {
     required this.userId,
   });
 
-  // factory CartProductModel.fromJson(
-  //     {required String id, required Map<String, dynamic> data}) {
-  //   return CartProductModel(
-  //       name: data['name'],
-  //       id: id,
-  //       image: data['image'],
-  //       productId: data['product_id'],
-  //       price: int.tryParse(data['price']),
-  //       userId: data['user_id']);
-  // }
+  factory CartProductModel.fromJson(
+      {required String id, required Map<String, dynamic> data}) {
+    return CartProductModel(
+        name: data['name'],
+        id: id,
+        image: data['image'],
+        // productId: data['product_id'],
+        price: int.tryParse(data['price']),
+        userId: data['user_id']);
+  }
 }
