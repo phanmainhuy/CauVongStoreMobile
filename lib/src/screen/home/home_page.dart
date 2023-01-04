@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                   crossAxisCount: 1,
                   // crossAxisSpacing: 20,
                   mainAxisSpacing: 10,
-                  mainAxisExtent: 150,
+                  mainAxisExtent: 120,
                 ),
                 itemBuilder: (context, index) => ItemCard(
                   product: _products[index],
@@ -135,6 +135,15 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Sản phẩm khuyến mãi".toUpperCase(),
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 17, color: Colors.black),
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
@@ -143,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                 itemCount: _products.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
-                  mainAxisExtent: 150,
+                  mainAxisExtent: 120,
                   // crossAxisSpacing: 20,
                   mainAxisSpacing: 10,
                 ),
