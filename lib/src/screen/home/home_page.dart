@@ -117,6 +117,8 @@ class _HomePageState extends State<HomePage> {
                 itemCount: _products.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
+                  // crossAxisSpacing: 20,
+                  mainAxisSpacing: 10,
                   mainAxisExtent: 150,
                 ),
                 itemBuilder: (context, index) => ItemCard(
@@ -142,6 +144,8 @@ class _HomePageState extends State<HomePage> {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
                   mainAxisExtent: 150,
+                  // crossAxisSpacing: 20,
+                  mainAxisSpacing: 10,
                 ),
                 itemBuilder: (context, index) => ItemCard(
                   product: _products[index],

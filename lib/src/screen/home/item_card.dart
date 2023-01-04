@@ -1,4 +1,5 @@
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
+import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:flutter/material.dart';
 
@@ -41,6 +42,31 @@ class ItemCard extends StatelessWidget {
           Text(
             "${product.price}đ",
             style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 30,
+            width: double.infinity,
+            child: ElevatedButton(
+              child: Text(
+                "mua".toUpperCase(),
+                style: const TextStyle(
+                    color: AppColor.kPrimaryColor, fontSize: 17),
+              ),
+              style: ButtonStyle(
+                  // padding: MaterialStateProperty.all<EdgeInsets>(
+                  //     const EdgeInsets.all(15)),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(AppColor.kPrimaryColor),
+                  // backgroundColor: MaterialStateProperty.all<Color>(AppColor.blue),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(19.0),
+                          side: const BorderSide(
+                              color: AppColor.kPrimaryColor)))),
+              onPressed: () {},
+            ),
           )
         ],
       ),
