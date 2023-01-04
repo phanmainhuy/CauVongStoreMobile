@@ -1,3 +1,5 @@
+import 'package:cauvongstore_mobile/src/components/category_item.dart';
+import 'package:cauvongstore_mobile/src/model/category_model.dart';
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
@@ -24,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     'assets/images/slides/slide4.jpg',
   ];
   List<ProductModel> _products = <ProductModel>[];
+  List<CategoryModel> categories = <CategoryModel>[];
   PageController pageController = PageController();
   int pageIndex = 1;
   List<Widget> pageList = <Widget>[
@@ -36,6 +39,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _createProductData();
+    _createCategoryData();
   }
 
   @override
@@ -109,6 +113,28 @@ class _HomePageState extends State<HomePage> {
             ),
             items: _buildImageSliders,
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Menu loại".toUpperCase(),
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 17, color: Colors.black),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          _buildCategories,
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Sản phẩm khuyến mãi".toUpperCase(),
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 17, color: Colors.black),
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
@@ -139,7 +165,7 @@ class _HomePageState extends State<HomePage> {
             height: 10,
           ),
           Text(
-            "Sản phẩm khuyến mãi".toUpperCase(),
+            "Sản phẩm theo loại gì đó".toUpperCase(),
             textAlign: TextAlign.center,
             style: const TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 17, color: Colors.black),
@@ -202,6 +228,68 @@ class _HomePageState extends State<HomePage> {
                 )),
           ))
       .toList();
+
+  Widget get _buildCategories => SizedBox(
+        height: 50,
+        child: ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          separatorBuilder: (_, index) => const SizedBox(width: 20),
+          itemCount: categories.length,
+          itemBuilder: (_, index) => CategoryItem(data: categories[index]),
+        ),
+      );
+
+  void _createCategoryData() {
+    var list = <CategoryModel>[
+      CategoryModel(
+          image:
+              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+          name: 'Trái cây',
+          id: '123',
+          color: ''),
+      CategoryModel(
+          image:
+              'https://tapchicongthuong.vn/images/19/9/19/6-mon-tuyet-doi-dung-nau-voi-thit-lon.jpg',
+          name: 'Thit',
+          id: '123',
+          color: ''),
+      CategoryModel(
+          image:
+              'https://cdn.tgdd.vn/Files/2017/10/26/1036030/rau-xa-lach-cong-dung-va-cach-phan-biet-cac-loai-xa-lach-202201191047303747.jpg',
+          name: 'Rau',
+          id: '123',
+          color: ''),
+      CategoryModel(
+          image:
+              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+          name: 'Trái cây',
+          id: '123',
+          color: ''),
+      CategoryModel(
+          image:
+              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+          name: 'Trái cây',
+          id: '123',
+          color: ''),
+      CategoryModel(
+          image:
+              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+          name: 'Trái cây',
+          id: '123',
+          color: ''),
+      CategoryModel(
+          image:
+              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+          name: 'Trái cây',
+          id: '123',
+          color: ''),
+    ];
+    setState(() {
+      categories = list;
+    });
+  }
 
   //Set cung data
   void _createProductData() {

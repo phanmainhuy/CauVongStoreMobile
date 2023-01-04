@@ -10,10 +10,10 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      backgroundColor: data.color.color,
+      // backgroundColor: data.color.color,
       child: Image(
-        width: 100,
-        height: 100,
+        width: 200,
+        height: 200,
         image: NetworkImage(data.image),
       ),
     );
