@@ -15,7 +15,6 @@ class SearchField extends StatelessWidget {
     required this.hint,
     // required this.onChange,
     //required this.onTap,
-    // required this.onTap,
     required this.onTap,
     required this.readOnly,
     this.onChange,

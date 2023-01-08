@@ -28,11 +28,11 @@ class _HomePageState extends State<HomePage> {
   List<ProductModel> _products = <ProductModel>[];
   List<CategoryModel> categories = <CategoryModel>[];
   PageController pageController = PageController();
-  int pageIndex = 1;
+  int pageIndex = 0;
   List<Widget> pageList = <Widget>[
-    NotificationPage(),
-    HomePage(),
     ProfilePage(),
+    NotificationPage(),
+    // HomePage(),
     NotificationPage(),
   ];
   @override
@@ -99,7 +99,43 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Column(
+      body: pageList[pageIndex],
+    );
+  }
+
+  List<Widget> get _buildImageSliders => imgList
+      .map((item) => Container(
+            margin: const EdgeInsets.all(5.0),
+            child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+                child: Stack(
+                  children: <Widget>[
+                    Image.asset(item, fit: BoxFit.cover, width: 1000.0),
+                    Positioned(
+                      bottom: 0.0,
+                      left: 0.0,
+                      right: 0.0,
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color.fromARGB(200, 0, 0, 0),
+                              Color.fromARGB(0, 0, 0, 0)
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          ),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 20.0),
+                      ),
+                    ),
+                  ],
+                )),
+          ))
+      .toList();
+
+  Widget get _buildHomePage => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           // carousel
@@ -193,41 +229,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  List<Widget> get _buildImageSliders => imgList
-      .map((item) => Container(
-            margin: const EdgeInsets.all(5.0),
-            child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-                child: Stack(
-                  children: <Widget>[
-                    Image.asset(item, fit: BoxFit.cover, width: 1000.0),
-                    Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(200, 0, 0, 0),
-                              Color.fromARGB(0, 0, 0, 0)
-                            ],
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
-                          ),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 20.0),
-                      ),
-                    ),
-                  ],
-                )),
-          ))
-      .toList();
+      );
 
   Widget get _buildCategories => SizedBox(
         height: 50,
