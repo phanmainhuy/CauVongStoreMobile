@@ -47,11 +47,6 @@ class ItemCard extends StatelessWidget {
             height: 30,
             width: double.infinity,
             child: ElevatedButton(
-              child: Text(
-                "mua".toUpperCase(),
-                style: const TextStyle(
-                    color: AppColor.kPrimaryColor, fontSize: 17),
-              ),
               style: ButtonStyle(
                   // padding: MaterialStateProperty.all<EdgeInsets>(
                   //     const EdgeInsets.all(15)),
@@ -66,6 +61,11 @@ class ItemCard extends StatelessWidget {
                           side: const BorderSide(
                               color: AppColor.kPrimaryColor)))),
               onPressed: () {},
+              child: Text(
+                "mua".toUpperCase(),
+                style: const TextStyle(
+                    color: AppColor.kPrimaryColor, fontSize: 17),
+              ),
             ),
           )
         ],

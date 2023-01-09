@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: const Text('Home Page'),
         backgroundColor: AppColor.kPrimaryColor,
         actions: <Widget>[
           IconButton(
@@ -222,7 +222,7 @@ class _HomePageState extends State<HomePage> {
                   product: _products[index],
                   press: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => CartPage()),
+                    MaterialPageRoute(builder: (context) => const CartPage()),
                   ),
                 ),
               ),
