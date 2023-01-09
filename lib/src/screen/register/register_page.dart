@@ -7,7 +7,7 @@ import '../../components/rounded_password_field.dart';
 import '../../resources/app_color.dart';
 import '../../resources/app_drawable.dart';
 import '../../utils/validator.dart';
-import '../home/home_page.dart';
+import '../home/main_page.dart';
 import '../login/login_page.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -231,7 +231,7 @@ class _RegisterPage extends StatelessWidget {
                       side: const BorderSide(color: Colors.white)))),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomePage()));
+                context, MaterialPageRoute(builder: (context) => MainPage()));
           },
         ),
       );

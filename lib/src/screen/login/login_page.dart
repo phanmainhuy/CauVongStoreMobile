@@ -2,7 +2,7 @@ import 'package:cauvongstore_mobile/src/components/rounded_input_field.dart';
 import 'package:cauvongstore_mobile/src/components/rounded_password_field.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/app_drawable.dart';
-import 'package:cauvongstore_mobile/src/screen/home/home_page.dart';
+import 'package:cauvongstore_mobile/src/screen/home/main_page.dart';
 import 'package:cauvongstore_mobile/src/utils/validator.dart';
 import 'package:flutter/material.dart';
 
@@ -206,7 +206,7 @@ class buildLoginButton extends StatelessWidget {
                             side: const BorderSide(color: Colors.white)))),
                 onPressed: () => {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()))
+                      MaterialPageRoute(builder: (context) => MainPage()))
                 },
               ));
   }

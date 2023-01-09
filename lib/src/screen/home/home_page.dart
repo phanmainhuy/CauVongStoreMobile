@@ -1,18 +1,19 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cauvongstore_mobile/src/components/category_item.dart';
 import 'package:cauvongstore_mobile/src/model/category_model.dart';
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
+import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
+import 'package:cauvongstore_mobile/src/screen/home/item_card.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import '../../resources/app_color.dart';
-import '../notification/notification_page.dart';
-import '../profile/profile_page.dart';
-import 'item_card.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
 import 'nav_drawer_widget.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -28,13 +29,6 @@ class _HomePageState extends State<HomePage> {
   List<ProductModel> _products = <ProductModel>[];
   List<CategoryModel> categories = <CategoryModel>[];
   PageController pageController = PageController();
-  int pageIndex = 0;
-  List<Widget> pageList = <Widget>[
-    ProfilePage(),
-    NotificationPage(),
-    // HomePage(),
-    NotificationPage(),
-  ];
   @override
   void initState() {
     super.initState();
@@ -61,81 +55,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      drawer: NavDrawerWidget(),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: pageIndex,
-        onTap: (value) {
-          //change page
-          setState(() {
-            pageIndex = value;
-          });
-          pageController.animateToPage(pageIndex,
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.easeIn);
-        },
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: AppColor.kPrimaryColor,
-        unselectedItemColor: AppColor.kFontColor,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: "Products",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.discount),
-            label: "Promotion",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: "Cart",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: "Notification",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-        ],
-      ),
-      body: pageList[pageIndex],
-    );
-  }
-
-  List<Widget> get _buildImageSliders => imgList
-      .map((item) => Container(
-            margin: const EdgeInsets.all(5.0),
-            child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-                child: Stack(
-                  children: <Widget>[
-                    Image.asset(item, fit: BoxFit.cover, width: 1000.0),
-                    Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(200, 0, 0, 0),
-                              Color.fromARGB(0, 0, 0, 0)
-                            ],
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
-                          ),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 20.0),
-                      ),
-                    ),
-                  ],
-                )),
-          ))
-      .toList();
-
-  Widget get _buildHomePage => Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           // carousel
@@ -229,7 +149,41 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
-      );
+      ),
+    );
+  }
+
+  List<Widget> get _buildImageSliders => imgList
+      .map((item) => Container(
+            margin: const EdgeInsets.all(5.0),
+            child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+                child: Stack(
+                  children: <Widget>[
+                    Image.asset(item, fit: BoxFit.cover, width: 1000.0),
+                    Positioned(
+                      bottom: 0.0,
+                      left: 0.0,
+                      right: 0.0,
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color.fromARGB(200, 0, 0, 0),
+                              Color.fromARGB(0, 0, 0, 0)
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          ),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 20.0),
+                      ),
+                    ),
+                  ],
+                )),
+          ))
+      .toList();
 
   Widget get _buildCategories => SizedBox(
         height: 50,
