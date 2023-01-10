@@ -1,14 +1,11 @@
+import 'package:cauvongstore_mobile/src/components/rounded_input_field.dart';
+import 'package:cauvongstore_mobile/src/components/rounded_password_field.dart';
+import 'package:cauvongstore_mobile/src/resources/app_color.dart';
+import 'package:cauvongstore_mobile/src/resources/app_drawable.dart';
+import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
+import 'package:cauvongstore_mobile/src/screen/main/main_page.dart';
+import 'package:cauvongstore_mobile/src/utils/validator.dart';
 import 'package:flutter/material.dart';
-
-import 'package:provider/provider.dart';
-
-import '../../components/rounded_input_field.dart';
-import '../../components/rounded_password_field.dart';
-import '../../resources/app_color.dart';
-import '../../resources/app_drawable.dart';
-import '../../utils/validator.dart';
-import '../home/main_page.dart';
-import '../login/login_page.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);

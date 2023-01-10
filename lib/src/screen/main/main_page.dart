@@ -1,17 +1,13 @@
-import 'package:cauvongstore_mobile/src/components/category_item.dart';
 import 'package:cauvongstore_mobile/src/model/category_model.dart';
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
-import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:cauvongstore_mobile/src/screen/promotion/promotion_page.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import '../../resources/app_color.dart';
 import '../notification/notification_page.dart';
 import '../profile/profile_page.dart';
-import 'home_page.dart';
-import 'item_card.dart';
-import 'nav_drawer_widget.dart';
+import '../home/home_page.dart';
+import '../home/nav_drawer_widget.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);

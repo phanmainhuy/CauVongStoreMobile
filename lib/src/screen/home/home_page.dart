@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cauvongstore_mobile/src/components/category_item.dart';
 import 'package:cauvongstore_mobile/src/model/category_model.dart';
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
@@ -8,9 +7,7 @@ import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:cauvongstore_mobile/src/screen/detail/detail_page.dart';
 import 'package:cauvongstore_mobile/src/screen/home/item_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
+import 'category_item.dart';
 import 'nav_drawer_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -56,6 +53,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+      drawer: NavDrawerWidget(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

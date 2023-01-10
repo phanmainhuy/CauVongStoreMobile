@@ -2,7 +2,7 @@ import 'package:cauvongstore_mobile/src/components/rounded_input_field.dart';
 import 'package:cauvongstore_mobile/src/components/rounded_password_field.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/app_drawable.dart';
-import 'package:cauvongstore_mobile/src/screen/home/main_page.dart';
+import 'package:cauvongstore_mobile/src/screen/main/main_page.dart';
 import 'package:cauvongstore_mobile/src/utils/validator.dart';
 import 'package:flutter/material.dart';
 
