@@ -1,5 +1,6 @@
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
+import 'package:cauvongstore_mobile/src/screen/detail/add_to_cart.dart';
 import 'package:flutter/material.dart';
 
 import 'color_and_size.dart';
@@ -40,12 +41,12 @@ class Body extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       ColorAndSize(product: product),
-                      // SizedBox(height: kDefaultPaddin / 2),
+                      SizedBox(height: kDefaultPaddin / 2),
                       Description(product: product),
                       SizedBox(height: kDefaultPaddin / 2),
                       CounterWithFavBtn(),
-                      // SizedBox(height: kDefaultPaddin / 2),
-                      // AddToCart(product: product)
+                      SizedBox(height: kDefaultPaddin / 2),
+                      AddToCart(product: product)
                     ],
                   ),
                 ),
