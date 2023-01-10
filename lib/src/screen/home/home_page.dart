@@ -204,43 +204,43 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
           name: 'Trái cây',
-          id: '123',
+          id: 'Sữa các loại',
           color: ''),
       CategoryModel(
           image:
               'https://tapchicongthuong.vn/images/19/9/19/6-mon-tuyet-doi-dung-nau-voi-thit-lon.jpg',
           name: 'Thit',
-          id: '123',
+          id: 'Sữa các loại',
           color: ''),
       CategoryModel(
           image:
               'https://cdn.tgdd.vn/Files/2017/10/26/1036030/rau-xa-lach-cong-dung-va-cach-phan-biet-cac-loai-xa-lach-202201191047303747.jpg',
           name: 'Rau',
-          id: '123',
+          id: 'Sữa các loại',
           color: ''),
       CategoryModel(
           image:
               'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
           name: 'Trái cây',
-          id: '123',
+          id: 'Sữa các loại',
           color: ''),
       CategoryModel(
           image:
               'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
           name: 'Trái cây',
-          id: '123',
+          id: 'Sữa các loại',
           color: ''),
       CategoryModel(
           image:
               'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
           name: 'Trái cây',
-          id: '123',
+          id: 'Sữa các loại',
           color: ''),
       CategoryModel(
           image:
               'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
           name: 'Trái cây',
-          id: '123',
+          id: 'Sữa các loại',
           color: ''),
     ];
     setState(() {
@@ -253,7 +253,7 @@ class _HomePageState extends State<HomePage> {
     var list = <ProductModel>[
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: '123',
+          id: 'Sữa các loại',
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
@@ -261,7 +261,7 @@ class _HomePageState extends State<HomePage> {
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: '123',
+          id: 'Sữa các loại',
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
@@ -269,7 +269,7 @@ class _HomePageState extends State<HomePage> {
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: '123',
+          id: 'Sữa các loại',
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
@@ -277,7 +277,7 @@ class _HomePageState extends State<HomePage> {
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: '123',
+          id: 'Sữa các loại',
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
@@ -285,7 +285,7 @@ class _HomePageState extends State<HomePage> {
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: '123',
+          id: 'Sữa các loại',
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
@@ -293,7 +293,7 @@ class _HomePageState extends State<HomePage> {
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: '123',
+          id: 'Sữa các loại',
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
