@@ -1,3 +1,4 @@
+import 'package:cauvongstore_mobile/src/screen/detail/cart_counter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,7 +12,7 @@ class CounterWithFavBtn extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        // CartCounter(),
+        CartCounter(),
         Container(
           padding: EdgeInsets.all(8),
           height: 32,
