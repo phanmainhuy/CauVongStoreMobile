@@ -17,44 +17,56 @@ class ProductTitleWithImage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            "Aristocratic Hand Bag",
-            style: TextStyle(color: Colors.white),
+          // Text(
+          //   "Aristocratic Hand Bag",
+          //   style: TextStyle(color: Colors.black),
+          // ),
+          // Text(
+          //   product.name,
+          //   style: Theme.of(context)
+          //       .textTheme
+          //       .headline4
+          //       ?.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+          // ),
+          // SizedBox(height: kDefaultPaddin),
+          // Row(
+          //   children: <Widget>[
+          //     RichText(
+          //       text: TextSpan(
+          //         children: [
+          //           TextSpan(text: "Price\n"),
+          //           TextSpan(
+          //             text: "\$${product.price}",
+          //             style: Theme.of(context).textTheme.headline4?.copyWith(
+          //                 color: Colors.black, fontWeight: FontWeight.bold),
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          // Expanded(
+          Hero(
+            tag: "${product.id}",
+            child: Image.network(
+              product.image,
+              fit: BoxFit.fill,
+            ),
+            // ),
           ),
-          Text(
-            product.name,
-            style: Theme.of(context)
-                .textTheme
-                .headline4
-                ?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+          const SizedBox(width: kDefaultPaddin),
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(text: "\n"),
+                TextSpan(
+                  text: "${product.name}\n",
+                  style: Theme.of(context).textTheme.headline4?.copyWith(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
-          SizedBox(height: kDefaultPaddin),
-          Row(
-            children: <Widget>[
-              RichText(
-                text: TextSpan(
-                  children: [
-                    TextSpan(text: "Price\n"),
-                    TextSpan(
-                      text: "\$${product.price}",
-                      style: Theme.of(context).textTheme.headline4?.copyWith(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(width: kDefaultPaddin),
-              Expanded(
-                child: Hero(
-                  tag: "${product.id}",
-                  child: Image.network(
-                    product.image,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              )
-            ],
-          )
+
+          // )
         ],
       ),
     );
