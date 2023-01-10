@@ -5,6 +5,7 @@ import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
+import 'package:cauvongstore_mobile/src/screen/detail/detail_page.dart';
 import 'package:cauvongstore_mobile/src/screen/home/item_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -107,11 +108,11 @@ class _HomePageState extends State<HomePage> {
                   product: _products[index],
                   press: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => CartPage()
-                        // DetailsScreen(
-                        //   product: _products[index],
-                        // ),
-                        ),
+                    MaterialPageRoute(
+                      builder: (context) => DetailPage(
+                        product: _products[index],
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -256,6 +257,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
+          description: 'Tốt cho bé',
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
@@ -263,6 +265,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
+          description: 'Tốt cho bé',
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
@@ -270,6 +273,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
+          description: 'Tốt cho bé',
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
@@ -277,6 +281,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
+          description: 'Tốt cho bé',
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
@@ -284,6 +289,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
+          description: 'Tốt cho bé',
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
@@ -291,6 +297,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
+          description: 'Tốt cho bé',
           categoryId: '1'),
     ];
     setState(() {
