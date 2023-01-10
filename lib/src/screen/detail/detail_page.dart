@@ -1,4 +1,5 @@
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
+import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,7 +21,7 @@ class DetailPage extends StatelessWidget {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-      // backgroundColor: product.color,
+      backgroundColor: AppColor.kPrimaryColor,
       elevation: 0,
       leading: IconButton(
         icon: SvgPicture.asset(

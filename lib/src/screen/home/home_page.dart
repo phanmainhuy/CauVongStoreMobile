@@ -257,7 +257,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
-          description: 'Tốt cho bé',
+          description: 'Description of product',
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
@@ -265,7 +265,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
-          description: 'Tốt cho bé',
+          description: 'Description of product',
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
@@ -273,7 +273,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
-          description: 'Tốt cho bé',
+          description: 'Description of product',
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
@@ -281,7 +281,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
-          description: 'Tốt cho bé',
+          description: 'Description of product',
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
@@ -289,7 +289,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
-          description: 'Tốt cho bé',
+          description: 'Description of product',
           categoryId: '1'),
       ProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
@@ -297,7 +297,7 @@ class _HomePageState extends State<HomePage> {
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
           price: 10000,
-          description: 'Tốt cho bé',
+          description: 'Description of product',
           categoryId: '1'),
     ];
     setState(() {

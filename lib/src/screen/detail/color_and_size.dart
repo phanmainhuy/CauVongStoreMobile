@@ -15,21 +15,20 @@ class ColorAndSize extends StatelessWidget {
     return Row(
       children: <Widget>[
         Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              const Text("Color"),
-              Row(
-                children: <Widget>[
-                  ColorDot(
-                    color: Color(0xFF356C95),
-                    isSelected: true,
-                  ),
-                  ColorDot(color: Color(0xFFF8C078)),
-                  ColorDot(color: Color(0xFFA29B9B)),
-                ],
-              ),
-            ],
+          child: RichText(
+            text: TextSpan(
+              style: TextStyle(color: kTextColor),
+              children: [
+                TextSpan(text: "Loại sản phẩm\n".toUpperCase()),
+                TextSpan(
+                  text: "${product.id}",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline5
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
           ),
         ),
         Expanded(
@@ -37,9 +36,9 @@ class ColorAndSize extends StatelessWidget {
             text: TextSpan(
               style: TextStyle(color: kTextColor),
               children: [
-                TextSpan(text: "Category\n"),
+                TextSpan(text: "Giá\n".toUpperCase()),
                 TextSpan(
-                  text: "${product.categoryId}",
+                  text: "${product.price} đ",
                   style: Theme.of(context)
                       .textTheme
                       .headline5
