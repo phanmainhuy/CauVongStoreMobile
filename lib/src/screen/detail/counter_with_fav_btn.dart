@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class CounterWithFavBtn extends StatelessWidget {
   const CounterWithFavBtn({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
