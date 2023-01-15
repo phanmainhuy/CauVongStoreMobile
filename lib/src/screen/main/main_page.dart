@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
       //     )
       //   ],
       // ),
-      drawer: NavDrawerWidget(),
+      // drawer: NavDrawerWidget(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: pageIndex,
         onTap: (value) {

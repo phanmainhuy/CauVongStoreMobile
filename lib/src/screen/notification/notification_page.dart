@@ -6,11 +6,15 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notification'),
+        title: const Text('Notification'),
         backgroundColor: AppColor.kPrimaryColor,
       ),
       body: const Center(
-        child: Text('Notification Page'),
+        child: Text('Bạn chưa có thông báo nào',
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            )),
       ),
     );
   }
