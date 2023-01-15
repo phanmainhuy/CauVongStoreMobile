@@ -35,10 +35,15 @@ class _CartPageState extends State<CartPage> {
         children: [
           Expanded(
             child: _buildCard,
+            flex: 9,
           ),
-          // Expanded(
-          //   child: _buildTotal(10000),
-          // ),
+          Expanded(
+            child: Container(
+              color: Colors.white,
+              child: _buildTotal(10000),
+            ),
+            flex: 1,
+          ),
           _buildButtonPurchase(context),
           const SizedBox(
             height: 10,
@@ -118,8 +123,6 @@ class _CartPageState extends State<CartPage> {
     var list = <CartProductModel>[
       CartProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
-          // icon: Icons.coffee,
-          // color: Colors.brown,
           id: '123',
           image:
               'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
