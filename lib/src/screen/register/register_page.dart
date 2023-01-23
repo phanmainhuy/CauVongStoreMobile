@@ -33,9 +33,8 @@ class _RegisterPage extends StatelessWidget {
               children: [
                 const SizedBox(height: 30),
                 AppDrawable.logo(width: size.width * 0.60),
-                const SizedBox(height: 10),
                 const Text(
-                  "ĐĂNG KÝ TÀI KHOẢN\nCỬA HÀNG CẦU VÒNG",
+                  "ĐĂNG KÝ TÀI KHOẢN",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,

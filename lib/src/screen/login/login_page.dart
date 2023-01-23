@@ -27,16 +27,6 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 AppDrawable.logo(width: size.width * 0.60),
-                const SizedBox(height: 10),
-                const Text(
-                  "CỬA HÀNG CẦU VÒNG",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      color: AppColor.blue),
-                ),
-                const SizedBox(height: 20),
                 SizedBox(
                   width: 330,
                   child: RoundedInputField(
