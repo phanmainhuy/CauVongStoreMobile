@@ -15,7 +15,7 @@ List<CartProductModel> carts = [];
 
 class _CartPageState extends State<CartPage> {
   MoneyFormat format = MoneyFormat();
-  String _money = "";
+  String _money = '100000';
 
   List<CartProductModel> _cart = <CartProductModel>[];
   @override
@@ -40,7 +40,7 @@ class _CartPageState extends State<CartPage> {
           Expanded(
             child: Container(
               color: Colors.white,
-              child: _buildTotal(10000),
+              child: _buildTotal('10000'),
             ),
             flex: 1,
           ),
@@ -100,7 +100,7 @@ class _CartPageState extends State<CartPage> {
         ],
       );
 
-  Widget _buildTotal(int totalPrice) => Padding(
+  Widget _buildTotal(String totalPrice) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -110,7 +110,7 @@ class _CartPageState extends State<CartPage> {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             Text(
-              totalPrice.toString(),
+              format.moneyFormat(totalPrice) + ' VND',
               style: const TextStyle(
                   fontWeight: FontWeight.bold, fontSize: 20, color: Colors.red),
             ),

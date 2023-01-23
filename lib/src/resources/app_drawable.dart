@@ -1,8 +1,9 @@
+import 'package:cauvongstore_mobile/src/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class AppDrawable {
   static logo({double? width, double? height}) =>
-      Image.asset("assets/images/logo.png", width: width, height: height);
+      Image.network(Constants.imgLogo, width: width, height: height);
 
   static user({double? width}) => Image.asset(
         "assets/images/nguoidung/Cc.png",

@@ -7,7 +7,7 @@ import '../../resources/app_color.dart';
 import '../notification/notification_page.dart';
 import '../profile/profile_page.dart';
 import '../home/home_page.dart';
-import '../home/nav_drawer_widget.dart';
+// import '../home/nav_drawer_widget.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -63,12 +63,21 @@ class _MainPageState extends State<MainPage> {
         currentIndex: pageIndex,
         onTap: (value) {
           //change page
-          setState(() {
-            pageIndex = value;
-          });
-          pageController.animateToPage(pageIndex,
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.easeIn);
+          if (value == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CartPage(),
+              ),
+            );
+          } else {
+            setState(() {
+              pageIndex = value;
+            });
+            pageController.animateToPage(pageIndex,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeIn);
+          }
         },
         type: BottomNavigationBarType.fixed,
         selectedItemColor: AppColor.kPrimaryColor,
