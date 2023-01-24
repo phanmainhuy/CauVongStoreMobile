@@ -3,7 +3,7 @@ import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/detail/add_to_cart.dart';
 import 'package:flutter/material.dart';
 
-import 'color_and_size.dart';
+import 'categories_detail.dart';
 import 'counter_with_fav_btn.dart';
 import 'description.dart';
 import 'product_title_with_image.dart';
@@ -40,7 +40,7 @@ class Body extends StatelessWidget {
                   ),
                   child: Column(
                     children: <Widget>[
-                      ColorAndSize(product: product),
+                      CategoryDetail(product: product),
                       const SizedBox(height: kDefaultPaddin / 2),
                       Description(product: product),
                       const SizedBox(height: kDefaultPaddin / 2),

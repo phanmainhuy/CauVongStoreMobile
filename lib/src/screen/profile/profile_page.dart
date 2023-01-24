@@ -1,3 +1,4 @@
+import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
 import 'package:flutter/material.dart';
 import '../../components/my_button.dart';
 import '../../resources/app_color.dart';
@@ -20,7 +21,6 @@ class ProfilePage extends StatelessWidget {
             children: <Widget>[
               const SizedBox(height: 20),
               AppDrawable.logo(width: size.width * 0.35),
-              const SizedBox(height: 20),
               const Text(
                 'Phan Mai Như Ý',
                 style: TextStyle(
@@ -28,7 +28,7 @@ class ProfilePage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 40),
               Expanded(
                 child: Column(
                   children: [
@@ -149,6 +149,17 @@ class ProfilePage extends StatelessWidget {
                     MyButton(
                       name: "Sửa thông tin",
                       // onPressed: () => {},
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    MyButton(
+                      name: "Đăng xuất",
+                      onPressed: () => {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const LoginPage(),
+                        ))
+                      },
                     ),
                   ],
                 ),

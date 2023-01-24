@@ -2,8 +2,8 @@ import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:flutter/material.dart';
 
-class ColorAndSize extends StatelessWidget {
-  const ColorAndSize({
+class CategoryDetail extends StatelessWidget {
+  const CategoryDetail({
     Key? key,
     required this.product,
   }) : super(key: key);
