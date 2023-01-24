@@ -37,12 +37,12 @@ class ItemCard extends StatelessWidget {
             child: Text(
               // products is out demo list
               product.name,
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
             ),
           ),
           Text(
             "${product.price} đ",
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
             ),
           ),
