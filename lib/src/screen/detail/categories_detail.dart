@@ -1,14 +1,16 @@
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
+import 'package:cauvongstore_mobile/src/utils/money_format.dart';
 import 'package:flutter/material.dart';
 
 class CategoryDetail extends StatelessWidget {
-  const CategoryDetail({
+  CategoryDetail({
     Key? key,
     required this.product,
   }) : super(key: key);
 
   final ProductModel product;
+  MoneyFormat _moneyFormat = MoneyFormat();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,8 @@ class CategoryDetail extends StatelessWidget {
               children: [
                 TextSpan(text: "Giá\n".toUpperCase()),
                 TextSpan(
-                  text: "${product.price} đ",
+                  // text: "${product.price} VND",
+                  text: _moneyFormat.moneyFormat('${product.price}') + ' VND',
                   style: Theme.of(context)
                       .textTheme
                       .headline5

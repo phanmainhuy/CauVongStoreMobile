@@ -16,6 +16,7 @@ List<CartProductModel> carts = [];
 class _CartPageState extends State<CartPage> {
   MoneyFormat format = MoneyFormat();
   String _money = '100000';
+  MoneyFormat _moneyFormat = MoneyFormat();
 
   List<CartProductModel> _cart = <CartProductModel>[];
   @override
@@ -67,7 +68,9 @@ class _CartPageState extends State<CartPage> {
                   height: 70,
                 ),
                 title: Text(_cart[index].name),
-                subtitle: Text(_cart[index].price?.toString() ?? ''),
+                subtitle: Text(_moneyFormat
+                        .moneyFormat(_cart[index].price?.toString() ?? '') +
+                    ' VND'),
                 trailing: IconButton(
                   onPressed: () {
                     // context.read<CartProvider>().removeCart(index);
@@ -80,23 +83,18 @@ class _CartPageState extends State<CartPage> {
           ),
         ),
       );
-  // Widget _buildButtonCart(BuildContext context) => Column(
-  //       children: [],
-  //     );
 
   Widget _buildButtonPurchase(BuildContext context) => Column(
         children: [
-          const SizedBox(height: 10),
           MyButton(
             name: "Đặt hàng",
+            height: 50,
             // onPressed: context.read<CartProvider>().payment,
             onPressed: () {},
           ),
-          // const SizedBox(height: 10),
-          // MyButton(
-          //   name: "Quay về trang chủ",
-          //   onPressed: Navigator.of(context).pop,
-          // ),
+          const SizedBox(
+            height: 30,
+          ),
         ],
       );
 

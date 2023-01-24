@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class ItemCard extends StatelessWidget {
   final ProductModel product;
   final VoidCallback? press;
+
   const ItemCard({
     Key? key,
     required this.product,
@@ -40,8 +41,10 @@ class ItemCard extends StatelessWidget {
             ),
           ),
           Text(
-            "${product.price}đ",
-            style: TextStyle(fontWeight: FontWeight.bold),
+            "${product.price} đ",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
           ),
           SizedBox(
             height: 30,
