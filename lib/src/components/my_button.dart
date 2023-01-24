@@ -5,8 +5,15 @@ import '../resources/app_color.dart';
 class MyButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String name;
+  final Color? backgroundColor;
+  final Color? textColor;
 
-  const MyButton({required this.name, this.onPressed, Key? key})
+  const MyButton(
+      {required this.name,
+      this.onPressed,
+      this.backgroundColor,
+      this.textColor,
+      Key? key})
       : super(key: key);
 
   @override
@@ -15,22 +22,22 @@ class MyButton extends StatelessWidget {
       height: 45,
       width: double.infinity,
       child: ElevatedButton(
-        child: Text(
-          name,
-          style: const TextStyle(color: Colors.white, fontSize: 17),
-        ),
         style: ButtonStyle(
             // padding: MaterialStateProperty.all<EdgeInsets>(
             //     const EdgeInsets.all(15)),
             foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
             // backgroundColor: MaterialStateProperty.all<Color>(AppColor.blue),
-            backgroundColor:
-                MaterialStateProperty.all<Color>(AppColor.kPrimaryColor),
+            backgroundColor: MaterialStateProperty.all<Color>(
+                backgroundColor ?? AppColor.kPrimaryColor),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(19.0),
                     side: const BorderSide(color: Colors.white)))),
         onPressed: onPressed,
+        child: Text(
+          name,
+          style: TextStyle(color: textColor ?? Colors.white, fontSize: 17),
+        ),
       ),
     );
   }
