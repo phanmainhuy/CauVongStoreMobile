@@ -9,6 +9,7 @@ import 'package:cauvongstore_mobile/src/screen/home/item_card.dart';
 import 'package:flutter/material.dart';
 import 'category_item.dart';
 import 'nav_drawer_widget.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -42,15 +43,14 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: AppColor.kPrimaryColor,
         actions: <Widget>[
           IconButton(
-            icon: const Icon(
-              Icons.shopping_cart,
-              color: Colors.white,
-            ),
+            icon: SvgPicture.asset("assets/icons/cart.svg"),
             onPressed: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => CartPage()));
+                context,
+                MaterialPageRoute(builder: (context) => const CartPage()),
+              );
             },
-          )
+          ),
         ],
       ),
       drawer: NavDrawerWidget(),

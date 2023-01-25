@@ -1,6 +1,7 @@
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
+import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'body.dart';
@@ -23,13 +24,13 @@ class DetailPage extends StatelessWidget {
     return AppBar(
       backgroundColor: AppColor.kPrimaryColor,
       elevation: 0,
-      leading: IconButton(
-        icon: SvgPicture.asset(
-          'assets/icons/back.svg',
-          color: Colors.white,
-        ),
-        onPressed: () => Navigator.pop(context),
-      ),
+      // leading: IconButton(
+      //   icon: SvgPicture.asset(
+      //     'assets/icons/back.svg',
+      //     color: Colors.white,
+      //   ),
+      //   onPressed: () => Navigator.pop(context),
+      // ),
       actions: <Widget>[
         IconButton(
           icon: SvgPicture.asset("assets/icons/search.svg"),
@@ -37,9 +38,14 @@ class DetailPage extends StatelessWidget {
         ),
         IconButton(
           icon: SvgPicture.asset("assets/icons/cart.svg"),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CartPage()),
+            );
+          },
         ),
-        SizedBox(width: kDefaultPaddin / 2)
+        const SizedBox(width: kDefaultPaddin / 2)
       ],
     );
   }

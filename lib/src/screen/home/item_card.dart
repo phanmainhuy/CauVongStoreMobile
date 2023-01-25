@@ -1,22 +1,24 @@
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
+import 'package:cauvongstore_mobile/src/utils/money_format.dart';
 import 'package:flutter/material.dart';
 
-class ItemCard extends StatelessWidget {
+class ItemCard extends StatefulWidget {
   final ProductModel product;
   final VoidCallback? press;
+  MoneyFormat _moneyFormat = MoneyFormat();
+  ItemCard({super.key, required this.product, this.press});
 
-  const ItemCard({
-    Key? key,
-    required this.product,
-    required this.press,
-  }) : super(key: key);
+  @override
+  State<ItemCard> createState() => _ItemCardState();
+}
 
+class _ItemCardState extends State<ItemCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press,
+      onTap: widget.press,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -27,8 +29,8 @@ class ItemCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Hero(
-                tag: product.id,
-                child: Image.network(product.image),
+                tag: widget.product.id,
+                child: Image.network(widget.product.image),
               ),
             ),
           ),
@@ -36,12 +38,12 @@ class ItemCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
             child: Text(
               // products is out demo list
-              product.name,
+              widget.product.name,
               style: const TextStyle(color: Colors.black),
             ),
           ),
           Text(
-            "${product.price} đ",
+            widget._moneyFormat.moneyFormat('${widget.product.price}') + ' VND',
             style: const TextStyle(
               fontWeight: FontWeight.bold,
             ),
