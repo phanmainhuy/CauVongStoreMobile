@@ -7,4 +7,5 @@ class AppColor {
   static const yellow = Color(0xFFFDCC32);
   static const green = Color(0xF09EDE82);
   static const kFontColor = Color(0xFFCBC1C1);
+  static const kTextColor = Color(0xFF535353);
 }

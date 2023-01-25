@@ -1,4 +1,5 @@
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
+import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/utils/money_format.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +20,11 @@ class CategoryDetail extends StatelessWidget {
         Expanded(
           child: RichText(
             text: TextSpan(
-              style: TextStyle(color: kTextColor),
+              style: const TextStyle(color: AppColor.kTextColor),
               children: [
                 TextSpan(text: "Loại sản phẩm\n".toUpperCase()),
                 TextSpan(
-                  text: "${product.id}",
+                  text: product.id,
                   style: Theme.of(context)
                       .textTheme
                       .headline5
@@ -36,7 +37,7 @@ class CategoryDetail extends StatelessWidget {
         Expanded(
           child: RichText(
             text: TextSpan(
-              style: TextStyle(color: kTextColor),
+              style: const TextStyle(color: AppColor.kTextColor),
               children: [
                 TextSpan(text: "Giá\n".toUpperCase()),
                 TextSpan(

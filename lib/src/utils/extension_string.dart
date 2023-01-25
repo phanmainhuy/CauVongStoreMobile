@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-extension StringEx on String {
+extension ParseHexColor on String {
   Color? get color {
     var hexColor = replaceAll("#", "");
 
