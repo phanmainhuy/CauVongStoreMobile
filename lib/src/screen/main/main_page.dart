@@ -85,23 +85,23 @@ class _MainPageState extends State<MainPage> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
-            label: "Products",
+            label: "Sản phẩm",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.discount),
-            label: "Promotion",
+            label: "Khuyến mãi",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
-            label: "Cart",
+            label: "Giỏ hàng",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
-            label: "Notification",
+            label: "Thông báo",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: "Profile",
+            label: "Người dùng",
           ),
         ],
       ),

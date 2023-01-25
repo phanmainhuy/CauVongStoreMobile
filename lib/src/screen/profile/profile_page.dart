@@ -1,3 +1,4 @@
+import 'package:cauvongstore_mobile/src/screen/edit_profile/edit_profile_page.dart';
 import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
 import 'package:flutter/material.dart';
 import '../../components/my_button.dart';
@@ -148,7 +149,14 @@ class ProfilePage extends StatelessWidget {
 
                     MyButton(
                       name: "Sửa thông tin",
-                      // onPressed: () => {},
+                      onPressed: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EditProfilePage(),
+                          ),
+                        ),
+                      },
                     ),
                     const SizedBox(
                       height: 10,

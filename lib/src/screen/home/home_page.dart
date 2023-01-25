@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                 MaterialPageRoute(builder: (context) => CategoriesPage()));
           },
         ),
-        title: const Text('Home Page'),
+        title: const Text('Trang chủ'),
         backgroundColor: AppColor.kPrimaryColor,
         actions: <Widget>[
           IconButton(

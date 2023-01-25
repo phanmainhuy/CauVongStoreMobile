@@ -1,6 +1,7 @@
 import 'package:cauvongstore_mobile/src/components/my_button.dart';
 import 'package:cauvongstore_mobile/src/model/cart_product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
+import 'package:cauvongstore_mobile/src/screen/order/order_page.dart';
 import 'package:cauvongstore_mobile/src/utils/money_format.dart';
 import 'package:flutter/material.dart';
 
@@ -91,7 +92,14 @@ class _CartPageState extends State<CartPage> {
             name: "Đặt hàng",
             height: 50,
             // onPressed: context.read<CartProvider>().payment,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const OrderPage(),
+                ),
+              );
+            },
           ),
           const SizedBox(
             height: 30,
