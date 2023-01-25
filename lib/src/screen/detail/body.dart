@@ -3,7 +3,7 @@ import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/detail/add_to_cart.dart';
 import 'package:flutter/material.dart';
 
-import 'categories_detail.dart';
+import 'category_detail.dart';
 import 'counter_with_fav_btn.dart';
 import 'description.dart';
 import 'product_title_with_image.dart';
