@@ -62,24 +62,25 @@ class _CartPageState extends State<CartPage> {
             itemCount: 1,
             separatorBuilder: (_, index) => const SizedBox(height: 15),
             itemBuilder: (_, index) => ListTile(
-                leading: Image.network(
-                  _cart[index].image,
-                  width: 70,
-                  height: 70,
+              leading: Image.network(
+                _cart[index].image,
+                width: 70,
+                height: 70,
+              ),
+              title: Text(_cart[index].name),
+              subtitle: Text(_moneyFormat
+                      .moneyFormat(_cart[index].price?.toString() ?? '') +
+                  ' VND'),
+              trailing: IconButton(
+                onPressed: () {
+                  // context.read<CartProvider>().removeCart(index);
+                },
+                icon: const Icon(
+                  Icons.add_circle,
+                  color: Colors.grey,
                 ),
-                title: Text(_cart[index].name),
-                subtitle: Text(_moneyFormat
-                        .moneyFormat(_cart[index].price?.toString() ?? '') +
-                    ' VND'),
-                trailing: IconButton(
-                  onPressed: () {
-                    // context.read<CartProvider>().removeCart(index);
-                  },
-                  icon: const Icon(
-                    Icons.add_circle,
-                    color: Colors.grey,
-                  ),
-                )),
+              ),
+            ),
           ),
         ),
       );

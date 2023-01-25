@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 class ItemCard extends StatefulWidget {
   final ProductModel product;
   final VoidCallback? press;
+  int numberBuy = 0;
   MoneyFormat _moneyFormat = MoneyFormat();
   ItemCard({super.key, required this.product, this.press});
 
@@ -51,27 +52,71 @@ class _ItemCardState extends State<ItemCard> {
           SizedBox(
             height: 30,
             width: double.infinity,
-            child: ElevatedButton(
-              style: ButtonStyle(
-                  // padding: MaterialStateProperty.all<EdgeInsets>(
-                  //     const EdgeInsets.all(15)),
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(AppColor.kPrimaryColor),
-                  // backgroundColor: MaterialStateProperty.all<Color>(AppColor.blue),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.white),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(19.0),
-                          side: const BorderSide(
-                              color: AppColor.kPrimaryColor)))),
-              onPressed: () {},
-              child: Text(
-                "mua".toUpperCase(),
-                style: const TextStyle(
-                    color: AppColor.kPrimaryColor, fontSize: 17),
-              ),
-            ),
+            child: (widget.numberBuy == 0)
+                ? ElevatedButton(
+                    style: ButtonStyle(
+                        // padding: MaterialStateProperty.all<EdgeInsets>(
+                        //     const EdgeInsets.all(15)),
+                        foregroundColor: MaterialStateProperty.all<Color>(
+                            AppColor.kPrimaryColor),
+                        // backgroundColor: MaterialStateProperty.all<Color>(AppColor.blue),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(19.0),
+                                    side: const BorderSide(
+                                        color: AppColor.kPrimaryColor)))),
+                    onPressed: () {
+                      setState(() {
+                        widget.numberBuy = widget.numberBuy + 1;
+                        print('numberBuy: ');
+                        print(widget.numberBuy);
+                      });
+                    },
+                    child: Text(
+                      "mua".toUpperCase(),
+                      style: const TextStyle(
+                          color: AppColor.kPrimaryColor, fontSize: 17),
+                    ),
+                  )
+                // : Text(widget.numberBuy.toString()),
+                : Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            widget.numberBuy--;
+                          });
+                        },
+                        icon: const Icon(
+                          Icons.remove_circle,
+                          color: AppColor.kPrimaryColor,
+                        ),
+                      ),
+                      SizedBox(
+                        child: Text(
+                          widget.numberBuy.toString(),
+                          style: const TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            widget.numberBuy++;
+                          });
+                        },
+                        icon: const Icon(
+                          Icons.add_circle,
+                          color: AppColor.kPrimaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
           )
         ],
       ),
