@@ -10,19 +10,20 @@ class CounterWithFavBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         CartCounter(),
-        Container(
-          padding: EdgeInsets.all(8),
-          height: 32,
-          width: 32,
-          decoration: const BoxDecoration(
-            color: Color(0xFFFF6464),
-            shape: BoxShape.circle,
-          ),
-          child: SvgPicture.asset("assets/icons/heart.svg"),
-        )
+        // Container(
+        //   padding: EdgeInsets.all(8),
+        //   height: 32,
+        //   width: 32,
+        //   decoration: const BoxDecoration(
+        //     color: Color(0xFFFF6464),
+        //     shape: BoxShape.circle,
+        //   ),
+        //   child: SvgPicture.asset("assets/icons/heart.svg"),
+        // )
       ],
     );
   }

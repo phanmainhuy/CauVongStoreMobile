@@ -1,3 +1,4 @@
+import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
 import 'package:cauvongstore_mobile/src/screen/profile/profile_page.dart';
@@ -94,7 +95,7 @@ class NavDrawerWidget extends StatelessWidget {
       leading: Icon(icon, color: color),
       title: Text(text,
           style: const TextStyle(
-            fontSize: 17,
+            fontSize: FontSizeText.fontPriceSize,
             color: color,
           )),
       hoverColor: hoverColor,

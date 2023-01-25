@@ -1,3 +1,4 @@
+import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:flutter/material.dart';
 
 import '../resources/app_color.dart';
@@ -38,7 +39,9 @@ class MyButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           name,
-          style: TextStyle(color: textColor ?? Colors.white, fontSize: 17),
+          style: TextStyle(
+              color: textColor ?? Colors.white,
+              fontSize: FontSizeText.fontPriceSize),
         ),
       ),
     );

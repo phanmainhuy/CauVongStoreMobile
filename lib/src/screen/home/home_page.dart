@@ -86,7 +86,9 @@ class _HomePageState extends State<HomePage> {
             "Menu loại".toUpperCase(),
             textAlign: TextAlign.center,
             style: const TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 17, color: Colors.black),
+                fontWeight: FontWeight.bold,
+                fontSize: FontSizeText.fontPriceSize,
+                color: Colors.black),
           ),
           const SizedBox(
             height: 10,
@@ -99,7 +101,9 @@ class _HomePageState extends State<HomePage> {
             "Sản phẩm khuyến mãi".toUpperCase(),
             textAlign: TextAlign.center,
             style: const TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 17, color: Colors.black),
+                fontWeight: FontWeight.bold,
+                fontSize: FontSizeText.fontPriceSize,
+                color: Colors.black),
           ),
           Expanded(
             child: Padding(
@@ -134,7 +138,9 @@ class _HomePageState extends State<HomePage> {
             "Sản phẩm theo loại gì đó".toUpperCase(),
             textAlign: TextAlign.center,
             style: const TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 17, color: Colors.black),
+                fontWeight: FontWeight.bold,
+                fontSize: FontSizeText.fontPriceSize,
+                color: Colors.black),
           ),
           Expanded(
             child: Padding(

@@ -47,6 +47,7 @@ class _ItemCardState extends State<ItemCard> {
             widget._moneyFormat.moneyFormat('${widget.product.price}') + ' VND',
             style: const TextStyle(
               fontWeight: FontWeight.bold,
+              fontSize: FontSizeText.fontPriceSize,
             ),
           ),
           SizedBox(
@@ -70,55 +71,67 @@ class _ItemCardState extends State<ItemCard> {
                                         color: AppColor.kPrimaryColor)))),
                     onPressed: () {
                       setState(() {
-                        widget.numberBuy = widget.numberBuy + 1;
-                        print('numberBuy: ');
-                        print(widget.numberBuy);
+                        widget.numberBuy++;
                       });
                     },
                     child: Text(
                       "mua".toUpperCase(),
                       style: const TextStyle(
-                          color: AppColor.kPrimaryColor, fontSize: 17),
+                          color: AppColor.kPrimaryColor,
+                          fontSize: FontSizeText.fontPriceSize),
                     ),
                   )
-                // : Text(widget.numberBuy.toString()),
                 : Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {
+                    children: <Widget>[
+                      buildOutlineButton(
+                        icon: Icons.remove,
+                        press: () {
                           setState(() {
                             widget.numberBuy--;
                           });
                         },
-                        icon: const Icon(
-                          Icons.remove_circle,
-                          color: AppColor.kPrimaryColor,
-                        ),
                       ),
-                      SizedBox(
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: kDefaultPaddin / 2),
                         child: Text(
+                          // if our item is less  then 10 then  it shows 01 02 like that
                           widget.numberBuy.toString(),
                           style: const TextStyle(
-                            fontSize: 17,
+                            fontSize: FontSizeText.fontPriceSize,
                             fontWeight: FontWeight.bold,
+                            color: Colors.black,
                           ),
                         ),
                       ),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            widget.numberBuy++;
-                          });
-                        },
-                        icon: const Icon(
-                          Icons.add_circle,
-                          color: AppColor.kPrimaryColor,
-                        ),
-                      ),
+                      buildOutlineButton(
+                          icon: Icons.add,
+                          press: () {
+                            setState(() {
+                              widget.numberBuy++;
+                            });
+                          }),
                     ],
                   ),
-          )
+          ),
         ],
+      ),
+    );
+  }
+
+  SizedBox buildOutlineButton({IconData? icon, Function()? press}) {
+    return SizedBox(
+      width: 30,
+      height: 32,
+      child: OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          padding: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+        onPressed: press,
+        child: Icon(icon),
       ),
     );
   }

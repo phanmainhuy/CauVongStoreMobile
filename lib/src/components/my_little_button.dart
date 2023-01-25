@@ -1,4 +1,5 @@
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
+import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:flutter/material.dart';
 
 class MyLittleButton extends StatelessWidget {
@@ -14,10 +15,6 @@ class MyLittleButton extends StatelessWidget {
       height: 30,
       width: 50,
       child: ElevatedButton(
-        child: Text(
-          name,
-          style: const TextStyle(color: Colors.white, fontSize: 17),
-        ),
         style: ButtonStyle(
             // padding: MaterialStateProperty.all<EdgeInsets>(
             //     const EdgeInsets.all(15)),
@@ -30,6 +27,11 @@ class MyLittleButton extends StatelessWidget {
                     borderRadius: BorderRadius.circular(19.0),
                     side: const BorderSide(color: Colors.white)))),
         onPressed: onPressed,
+        child: Text(
+          name,
+          style: const TextStyle(
+              color: Colors.white, fontSize: FontSizeText.fontPriceSize),
+        ),
       ),
     );
   }
