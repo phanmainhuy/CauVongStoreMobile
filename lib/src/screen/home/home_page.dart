@@ -4,6 +4,7 @@ import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
+import 'package:cauvongstore_mobile/src/screen/categories/categories_page.dart';
 import 'package:cauvongstore_mobile/src/screen/detail/detail_page.dart';
 import 'package:cauvongstore_mobile/src/screen/home/item_card.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(
+            Icons.menu,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => CategoriesPage()));
+          },
+        ),
         title: const Text('Home Page'),
         backgroundColor: AppColor.kPrimaryColor,
         actions: <Widget>[
@@ -53,7 +64,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      drawer: NavDrawerWidget(),
+      // drawer: CartPage(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
