@@ -9,10 +9,10 @@ class CategoriesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.kPrimaryColor,
-        title: const Text('Categories Page'),
+        title: const Text('Categories Product Page'),
       ),
       body: const Center(
-        child: Text('Categories Page'),
+        child: Text('Categories Product Page'),
       ),
     );
   }

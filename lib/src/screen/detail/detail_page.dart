@@ -21,6 +21,7 @@ class DetailPage extends StatelessWidget {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
+      title: const Text('Chi tiết sản phẩm'),
       backgroundColor: AppColor.kPrimaryColor,
       elevation: 0,
       // leading: IconButton(

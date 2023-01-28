@@ -4,12 +4,12 @@ import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
-import 'package:cauvongstore_mobile/src/screen/categories/categories_page.dart';
+import 'package:cauvongstore_mobile/src/screen/categories/category_menu/categories_menu_page.dart';
 import 'package:cauvongstore_mobile/src/screen/detail/detail_page.dart';
 import 'package:cauvongstore_mobile/src/screen/home/item_card.dart';
+import 'package:cauvongstore_mobile/src/screen/search/search_page.dart';
 import 'package:flutter/material.dart';
 import 'category_item.dart';
-import 'nav_drawer_widget.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,12 +47,21 @@ class _HomePageState extends State<HomePage> {
           ),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => CategoriesPage()));
+                MaterialPageRoute(builder: (context) => CategoriesMenuPage()));
           },
         ),
         title: const Text('Trang chủ'),
         backgroundColor: AppColor.kPrimaryColor,
         actions: <Widget>[
+          IconButton(
+            icon: SvgPicture.asset("assets/icons/search.svg"),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SearchPage()),
+              );
+            },
+          ),
           IconButton(
             icon: SvgPicture.asset("assets/icons/cart.svg"),
             onPressed: () {
@@ -64,11 +73,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      // drawer: CartPage(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          // carousel
+          // // carousel
           CarouselSlider(
             options: CarouselOptions(
               aspectRatio: 2.0,
@@ -82,21 +90,21 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 10,
           ),
-          Text(
-            "Menu loại".toUpperCase(),
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: FontSizeText.fontPriceSize,
-                color: Colors.black),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          _buildCategories,
-          const SizedBox(
-            height: 10,
-          ),
+          // Text(
+          //   "Menu loại".toUpperCase(),
+          //   textAlign: TextAlign.center,
+          //   style: const TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: FontSizeText.fontPriceSize,
+          //       color: Colors.black),
+          // ),
+          // const SizedBox(
+          //   height: 10,
+          // ),
+          // _buildCategories,
+          // const SizedBox(
+          //   height: 10,
+          // ),
           Text(
             "Sản phẩm khuyến mãi".toUpperCase(),
             textAlign: TextAlign.center,
@@ -215,47 +223,47 @@ class _HomePageState extends State<HomePage> {
   void _createCategoryData() {
     var list = <CategoryModel>[
       CategoryModel(
-          image:
-              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-          name: 'Trái cây',
-          id: 'Sữa các loại',
-          color: ''),
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Trái cây',
+        id: 'Sữa các loại',
+      ),
       CategoryModel(
-          image:
-              'https://tapchicongthuong.vn/images/19/9/19/6-mon-tuyet-doi-dung-nau-voi-thit-lon.jpg',
-          name: 'Thit',
-          id: 'Sữa các loại',
-          color: ''),
+        image:
+            'https://tapchicongthuong.vn/images/19/9/19/6-mon-tuyet-doi-dung-nau-voi-thit-lon.jpg',
+        name: 'Thit',
+        id: 'Sữa các loại',
+      ),
       CategoryModel(
-          image:
-              'https://cdn.tgdd.vn/Files/2017/10/26/1036030/rau-xa-lach-cong-dung-va-cach-phan-biet-cac-loai-xa-lach-202201191047303747.jpg',
-          name: 'Rau',
-          id: 'Sữa các loại',
-          color: ''),
+        image:
+            'https://cdn.tgdd.vn/Files/2017/10/26/1036030/rau-xa-lach-cong-dung-va-cach-phan-biet-cac-loai-xa-lach-202201191047303747.jpg',
+        name: 'Rau',
+        id: 'Sữa các loại',
+      ),
       CategoryModel(
-          image:
-              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-          name: 'Trái cây',
-          id: 'Sữa các loại',
-          color: ''),
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Trái cây',
+        id: 'Sữa các loại',
+      ),
       CategoryModel(
-          image:
-              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-          name: 'Trái cây',
-          id: 'Sữa các loại',
-          color: ''),
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Trái cây',
+        id: 'Sữa các loại',
+      ),
       CategoryModel(
-          image:
-              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-          name: 'Trái cây',
-          id: 'Sữa các loại',
-          color: ''),
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Trái cây',
+        id: 'Sữa các loại',
+      ),
       CategoryModel(
-          image:
-              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-          name: 'Trái cây',
-          id: 'Sữa các loại',
-          color: ''),
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Trái cây',
+        id: 'Sữa các loại',
+      ),
     ];
     setState(() {
       categories = list;

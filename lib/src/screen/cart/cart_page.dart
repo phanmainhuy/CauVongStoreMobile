@@ -71,15 +71,15 @@ class _CartPageState extends State<CartPage> {
               subtitle: Text(_moneyFormat
                       .moneyFormat(_cart[index].price?.toString() ?? '') +
                   ' VND'),
-              trailing: IconButton(
-                onPressed: () {
-                  // context.read<CartProvider>().removeCart(index);
-                },
-                icon: const Icon(
-                  Icons.add_circle,
-                  color: Colors.grey,
-                ),
-              ),
+              // trailing: IconButton(
+              //   onPressed: () {
+              //     // context.read<CartProvider>().removeCart(index);
+              //   },
+              //   icon: const Icon(
+              //     Icons.add_circle,
+              //     color: Colors.grey,
+              //   ),
+              // ),
             ),
           ),
         ),
