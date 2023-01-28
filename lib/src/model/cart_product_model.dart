@@ -5,6 +5,7 @@ class CartProductModel {
   final String image;
   final int? price;
   final String userId;
+  final int? total;
 
   CartProductModel({
     // required this.productId,
@@ -13,6 +14,7 @@ class CartProductModel {
     required this.name,
     required this.image,
     required this.userId,
+    this.total,
   });
 
   factory CartProductModel.fromJson(
@@ -23,6 +25,7 @@ class CartProductModel {
         image: data['image'],
         // productId: data['product_id'],
         price: int.tryParse(data['price']),
+        total: int.tryParse(data['total']),
         userId: data['user_id']);
   }
 }

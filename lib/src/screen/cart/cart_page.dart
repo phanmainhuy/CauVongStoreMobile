@@ -1,6 +1,7 @@
 import 'package:cauvongstore_mobile/src/components/my_button.dart';
 import 'package:cauvongstore_mobile/src/model/cart_product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
+import 'package:cauvongstore_mobile/src/screen/cart/item_card_card.dart';
 import 'package:cauvongstore_mobile/src/screen/order/order_page.dart';
 import 'package:cauvongstore_mobile/src/utils/money_format.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +12,6 @@ class CartPage extends StatefulWidget {
   @override
   State<CartPage> createState() => _CartPageState();
 }
-
-List<CartProductModel> carts = [];
 
 class _CartPageState extends State<CartPage> {
   MoneyFormat format = MoneyFormat();
