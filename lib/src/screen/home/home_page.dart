@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
           Text(
             "Sản phẩm theo loại gì đó".toUpperCase(),
