@@ -1,8 +1,11 @@
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
+import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:cauvongstore_mobile/src/screen/home/item_card.dart';
+import 'package:cauvongstore_mobile/src/screen/search/search_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../detail/detail_page.dart';
 
@@ -13,6 +16,31 @@ class PromotionPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Promotion'),
         backgroundColor: AppColor.kPrimaryColor,
+        actions: <Widget>[
+          // have search
+          IconButton(
+            icon: SvgPicture.asset("assets/icons/search.svg"),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SearchPage(),
+                ),
+              );
+            },
+          ),
+          // have cart
+          IconButton(
+            icon: SvgPicture.asset("assets/icons/cart.svg"),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CartPage()),
+              );
+            },
+          ),
+          const SizedBox(width: kDefaultPaddin / 2)
+        ],
       ),
       body: _PromotionPage(),
     );

@@ -1,4 +1,4 @@
-import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
+import 'package:cauvongstore_mobile/src/screen/main/main_page.dart';
 import 'package:flutter/material.dart';
 
 // import 'base/di/locator.dart';
@@ -20,6 +20,6 @@ class MyApp extends StatelessWidget {
           iconTheme: const IconThemeData(color: Colors.white),
         ),
         debugShowCheckedModeBanner: false,
-        home: LoginPage());
+        home: MainPage());
   }
 }
