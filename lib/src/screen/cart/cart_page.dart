@@ -59,7 +59,7 @@ class _CartPageState extends State<CartPage> {
         child: Card(
           elevation: 4.0,
           child: ListView.separated(
-            itemCount: 1,
+            itemCount: _cart.length,
             separatorBuilder: (_, index) => const SizedBox(height: 15),
             itemBuilder: (_, index) => ListTile(
               leading: Image.network(
@@ -127,6 +127,27 @@ class _CartPageState extends State<CartPage> {
   //Set cung data
   void _createCartData() {
     var list = <CartProductModel>[
+      CartProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '123',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          userId: '123123',
+          price: 10000),
+      CartProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '123',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          userId: '1',
+          price: 10000),
+      CartProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '123',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          userId: '123123',
+          price: 10000),
       CartProductModel(
           name: 'Lốc 4 hộp sữa dinh dưỡng',
           id: '123',

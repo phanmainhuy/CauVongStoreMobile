@@ -84,7 +84,7 @@ class __OrderPageState extends State<_OrderPage> {
         child: Card(
           elevation: 4.0,
           child: ListView.separated(
-            itemCount: 1,
+            itemCount: _cart.length,
             separatorBuilder: (_, index) => const SizedBox(height: 15),
             itemBuilder: (_, index) => ListTile(
               leading: Image.network(

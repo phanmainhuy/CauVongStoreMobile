@@ -76,15 +76,23 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
         child: Card(
           elevation: 4.0,
           child: ListView.separated(
-            itemCount: 1,
+            itemCount: categories.length,
             separatorBuilder: (_, index) => const SizedBox(height: 15),
             itemBuilder: (_, index) => ListTile(
-              leading: Image.network(
-                categories[index].image,
-                width: 70,
-                height: 70,
+              title: Text(
+                categories[index].name,
+                style: const TextStyle(
+                  fontSize: FontSizeText.fontPriceSize,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              title: Text(categories[index].name),
+              trailing: IconButton(
+                icon: Icon(
+                  Icons.navigate_next,
+                  color: Colors.grey,
+                ),
+                onPressed: () {},
+              ),
             ),
           ),
         ),
