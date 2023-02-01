@@ -30,19 +30,17 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   width: 330,
                   child: RoundedInputField(
-                    icon: Icons.person,
-                    keyboardType: TextInputType.emailAddress,
-                    hintText: "Email hoặc số điện thoại",
+                    icon: Icons.phone,
+                    keyboardType: TextInputType.phone,
+                    hintText: "Nhập số điện thoại",
                     // controller: email,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Phải nhập địa chỉ email';
+                        return 'Vui lòng nhập số điện thoại';
                       }
-
-                      if (!Validator.email(value)) {
-                        return 'Địa chỉ email sai định dạng';
+                      if (value.length != 10) {
+                        return 'vui lòng nhập chuỗi số gồm 10 ký tư';
                       }
-
                       return null;
                     },
                   ),

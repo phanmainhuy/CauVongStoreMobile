@@ -31,7 +31,7 @@ class _RegisterPage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                const SizedBox(height: 30),
+                const SizedBox(height: 10),
                 AppDrawable.logo(width: size.width * 0.60),
                 const Text(
                   "ĐĂNG KÝ TÀI KHOẢN",
@@ -71,15 +71,11 @@ class _RegisterPage extends StatelessWidget {
         SizedBox(
           width: 330,
           child: RoundedInputField(
-            icon: Icons.person,
-            hintText: "Họ và tên",
+            icon: Icons.account_circle_rounded,
+            hintText: "Tên",
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Phải nhập họ và tên';
-              }
-
-              if (value.length < 6) {
-                return 'Họ và tên phải lớn hơn 6 kí tự';
+                return 'Vui lòng nhập tên';
               }
 
               return null;
@@ -90,16 +86,31 @@ class _RegisterPage extends StatelessWidget {
         SizedBox(
           width: 330,
           child: RoundedInputField(
-            icon: Icons.email,
-            hintText: "Email",
-            keyboardType: TextInputType.emailAddress,
+            icon: Icons.account_circle_rounded,
+            hintText: "Họ",
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Phải nhập địa chỉ email';
+                return 'Vui lòng nhập họ';
               }
 
-              if (!Validator.email(value)) {
-                return 'Địa chỉ email sai định dạng';
+              return null;
+            },
+          ),
+        ),
+        const SizedBox(height: 10),
+        SizedBox(
+          width: 330,
+          child: RoundedInputField(
+            icon: Icons.phone,
+            hintText: "Số điện thoại",
+            keyboardType: TextInputType.phone,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Vui lòng nhập số điện thoại';
+              }
+
+              if (value.length != 10) {
+                return 'Số điện thoại phải 10 kí tự';
               }
 
               return null;
@@ -113,7 +124,7 @@ class _RegisterPage extends StatelessWidget {
             hintText: 'Mật khẩu',
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Phải nhập mật khẩu';
+                return 'Vui lòng nhập mật khẩu';
               }
 
               if (value.length < 8) {
@@ -131,7 +142,7 @@ class _RegisterPage extends StatelessWidget {
             hintText: 'Nhập lại mật khẩu',
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Phải nhập mật khẩu';
+                return 'Vui lòng nhập mật khẩu';
               }
 
               if (value.length < 8) {
@@ -146,18 +157,13 @@ class _RegisterPage extends StatelessWidget {
         SizedBox(
           width: 330,
           child: RoundedInputField(
-            icon: Icons.phone,
-            hintText: "Số điện thoại",
-            keyboardType: TextInputType.phone,
+            icon: Icons.calendar_month_rounded,
+            hintText: "Ngày sinh",
+            keyboardType: TextInputType.emailAddress,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Phải nhập số điện thoại';
+                return 'Vui lòng chọn ngày sinh';
               }
-
-              if (value.length != 10) {
-                return 'Số điện thoai phải 10 kí tự';
-              }
-
               return null;
             },
           ),
@@ -166,13 +172,12 @@ class _RegisterPage extends StatelessWidget {
         SizedBox(
           width: 330,
           child: RoundedInputField(
-            icon: Icons.add_location,
-            hintText: "Địa chỉ",
+            icon: Icons.wc,
+            hintText: "Giới tính",
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Phải nhập địa chỉ';
+                return 'Vui lòng nhập địa chỉ';
               }
-
               return null;
             },
           ),
