@@ -9,11 +9,13 @@ class RoundedInputField extends StatelessWidget {
   final FormFieldValidator<String>? validator;
   final IconData icon;
   final TextInputType? keyboardType;
+  final int? length;
 
   const RoundedInputField({
     Key? key,
     required this.hintText,
     required this.icon,
+    this.length,
     // required this.controller,
     this.validator,
     this.keyboardType,
@@ -23,6 +25,7 @@ class RoundedInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       // controller: controller,
+      maxLength: length,
       cursorColor: AppColor.blue,
       validator: validator,
       keyboardType: keyboardType,

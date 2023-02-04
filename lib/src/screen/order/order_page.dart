@@ -1,6 +1,7 @@
 import 'package:cauvongstore_mobile/src/components/my_button.dart';
 import 'package:cauvongstore_mobile/src/model/cart_product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
+import 'package:cauvongstore_mobile/src/screen/order/order_info_user_page.dart';
 import 'package:cauvongstore_mobile/src/utils/money_format.dart';
 import 'package:flutter/material.dart';
 
@@ -62,16 +63,16 @@ class __OrderPageState extends State<_OrderPage> {
   Widget _buildButtonPurchase(BuildContext context) => Column(
         children: [
           MyButton(
-            name: "Xác nhận đặt hàng",
+            name: "Xác nhận đơn hàng",
             height: 50,
             // onPressed: context.read<CartProvider>().payment,
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => const OrderPage(),
-              //   ),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const OrderInfoUserPage(),
+                ),
+              );
             },
           ),
           const SizedBox(
