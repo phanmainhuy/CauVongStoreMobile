@@ -7,6 +7,7 @@ import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:cauvongstore_mobile/src/screen/categories/category_menu/categories_menu_page.dart';
 import 'package:cauvongstore_mobile/src/screen/detail/detail_page.dart';
 import 'package:cauvongstore_mobile/src/screen/home/item_card.dart';
+import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
 import 'package:cauvongstore_mobile/src/screen/search/search_page.dart';
 import 'package:flutter/material.dart';
 import 'category_item.dart';
@@ -53,6 +54,15 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Trang chủ'),
         backgroundColor: AppColor.kPrimaryColor,
         actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.note_outlined),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+              );
+            },
+          ),
           IconButton(
             icon: SvgPicture.asset("assets/icons/search.svg"),
             onPressed: () {
