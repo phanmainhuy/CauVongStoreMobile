@@ -147,7 +147,7 @@ class _OrderInfoUserPageState extends State<OrderInfoUserPage> {
           ),
         ),
         const Text(
-          "Email",
+          "Ghi chú",
           textAlign: TextAlign.center,
           style: TextStyle(
               // fontWeight: FontWeight.bold,

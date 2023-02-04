@@ -32,7 +32,7 @@ class RoundedInputField extends StatelessWidget {
       decoration: InputDecoration(
         contentPadding: EdgeInsets.zero,
         filled: true,
-        fillColor: AppColor.green,
+        fillColor: Colors.white,
         prefixIcon: Icon(
           icon,
           color: AppColor.blue,
@@ -45,13 +45,13 @@ class RoundedInputField extends StatelessWidget {
             borderSide: const BorderSide(color: Colors.red, width: 1),
             borderRadius: BorderRadius.circular(200)),
         enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.white, width: 0),
+            borderSide: const BorderSide(color: Colors.black, width: 0),
             borderRadius: BorderRadius.circular(200)),
         focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.white, width: 0),
+            borderSide: const BorderSide(color: Colors.black, width: 0),
             borderRadius: BorderRadius.circular(200)),
         focusedErrorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.white, width: 0),
+          borderSide: const BorderSide(color: Colors.black, width: 0),
           borderRadius: BorderRadius.circular(200),
         ),
       ),

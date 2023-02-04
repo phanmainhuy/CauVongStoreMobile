@@ -1,5 +1,6 @@
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/screen/home/home_page.dart';
+import 'package:cauvongstore_mobile/src/screen/main/main_page.dart';
 import 'package:flutter/material.dart';
 
 class OrderSuccessfulPage extends StatelessWidget {
@@ -7,10 +8,10 @@ class OrderSuccessfulPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Navigator.pushReplacement(
+        Navigator.pop(
           context,
           MaterialPageRoute(
-            builder: (context) => HomePage(),
+            builder: (context) => MainPage(),
           ),
         );
         return true;
@@ -23,11 +24,12 @@ class OrderSuccessfulPage extends StatelessWidget {
         body: SafeArea(
           child: Center(
             child: Text(
-              'Đặt hàng thành công, vui lòng kiểm tra lại đơn hàng đã đặt trong mục Đơn hàng của bạn',
+              'Đặt hàng thành công\nVui lòng kiểm tra lại đơn hàng đã đặt trong mục \nĐơn hàng của bạn',
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
         ),

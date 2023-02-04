@@ -1,3 +1,4 @@
+import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/edit_profile/edit_profile_page.dart';
 import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: 20),
               AppDrawable.logo(width: size.width * 0.35),
               const Text(
-                'Phan Mai Như Ý',
+                'Username',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -37,12 +38,12 @@ class ProfilePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [
                         SizedBox(
-                          width: 60,
+                          width: 112,
                           height: 50,
                           child: Text(
-                            'Name',
+                            'Họ và tên',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: FontSizeText.fontPriceSize,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -53,7 +54,33 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'Phan Mai Như Ý',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: FontSizeText.fontPriceSize,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
+                        SizedBox(
+                          width: 112,
+                          height: 50,
+                          child: Text(
+                            'Số điện thoại',
+                            style: TextStyle(
+                              fontSize: FontSizeText.fontPriceSize,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 230,
+                          height: 50,
+                          child: Text(
+                            '0123456789',
+                            style: TextStyle(
+                              fontSize: FontSizeText.fontPriceSize,
                             ),
                           ),
                         ),
@@ -64,12 +91,12 @@ class ProfilePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [
                         SizedBox(
-                          width: 60,
+                          width: 112,
                           height: 50,
                           child: Text(
                             'Email',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: FontSizeText.fontPriceSize,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -80,8 +107,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'phanmainhuy@gmail.com',
                             style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.grey,
+                              fontSize: FontSizeText.fontPriceSize,
                             ),
                           ),
                         ),
@@ -93,39 +119,12 @@ class ProfilePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [
                         SizedBox(
-                          width: 60,
+                          width: 112,
                           height: 50,
                           child: Text(
-                            'Phone',
+                            'Địa chỉ',
                             style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 230,
-                          height: 50,
-                          child: Text(
-                            '0948462040',
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        SizedBox(
-                          width: 75,
-                          height: 50,
-                          child: Text(
-                            'Address',
-                            style: TextStyle(
-                              fontSize: 18,
+                              fontSize: FontSizeText.fontPriceSize,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -136,7 +135,61 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'Tân Bình',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: FontSizeText.fontPriceSize,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
+                        SizedBox(
+                          width: 112,
+                          height: 50,
+                          child: Text(
+                            'Ngày sinh',
+                            style: TextStyle(
+                              fontSize: FontSizeText.fontPriceSize,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 230,
+                          height: 50,
+                          child: Text(
+                            '05-11-2000',
+                            style: TextStyle(
+                              fontSize: FontSizeText.fontPriceSize,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
+                        SizedBox(
+                          width: 112,
+                          height: 50,
+                          child: Text(
+                            'Ngày tạo',
+                            style: TextStyle(
+                              fontSize: FontSizeText.fontPriceSize,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 230,
+                          height: 50,
+                          child: Text(
+                            '30-01-2023',
+                            style: TextStyle(
+                              fontSize: FontSizeText.fontPriceSize,
                             ),
                           ),
                         ),
@@ -158,9 +211,11 @@ class ProfilePage extends StatelessWidget {
                         ),
                       },
                     ),
+
                     const SizedBox(
                       height: 10,
                     ),
+
                     MyButton(
                       name: "Đăng xuất",
                       onPressed: () => {
@@ -171,16 +226,6 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ],
                 ),
-
-                // const Text(
-                //   'Test',
-                //   style: TextStyle(
-                //     fontSize: 18,
-                //     fontWeight: FontWeight.bold,
-                //   ),
-                // ),
-
-                //build profile
               ),
             ],
           ),

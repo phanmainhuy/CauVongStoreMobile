@@ -31,7 +31,7 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     PromotionPage(),
     CartPage(),
-    NotificationPage(),
+    // NotificationPage(),
     ProfilePage(),
   ];
   @override
@@ -95,10 +95,10 @@ class _MainPageState extends State<MainPage> {
             icon: Icon(Icons.shopping_cart),
             label: "Giỏ hàng",
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: "Thông báo",
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.notifications),
+          //   label: "Thông báo",
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: "Người dùng",

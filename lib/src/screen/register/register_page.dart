@@ -153,36 +153,7 @@ class _RegisterPage extends StatelessWidget {
             },
           ),
         ),
-        const SizedBox(height: 10),
-        SizedBox(
-          width: 330,
-          child: RoundedInputField(
-            icon: Icons.calendar_month_rounded,
-            hintText: "Ngày sinh",
-            keyboardType: TextInputType.emailAddress,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Vui lòng chọn ngày sinh';
-              }
-              return null;
-            },
-          ),
-        ),
-        const SizedBox(height: 10),
-        SizedBox(
-          width: 330,
-          child: RoundedInputField(
-            icon: Icons.wc,
-            hintText: "Giới tính",
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Vui lòng nhập địa chỉ';
-              }
-              return null;
-            },
-          ),
-        ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 30),
       ],
     );
   }
@@ -231,7 +202,7 @@ class _RegisterPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(19.0),
                       side: const BorderSide(color: Colors.white)))),
           onPressed: () {
-            Navigator.push(
+            Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => MainPage()));
           },
         ),

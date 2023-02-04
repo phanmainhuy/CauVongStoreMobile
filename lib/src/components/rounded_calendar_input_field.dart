@@ -1,52 +1,45 @@
-import 'package:flutter/material.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
+import 'package:flutter/material.dart';
 
-class MyPasswordField extends StatefulWidget {
+class RoundedCalendarInputField extends StatelessWidget {
+  final String hintText;
   final TextEditingController? controller;
-  final String? hintText;
   final FormFieldValidator<String>? validator;
+  final IconData icon;
+  final TextInputType? keyboardType;
+  final VoidCallback onTap;
+  final ValueChanged<String>? onChange;
 
-  const MyPasswordField({
+  const RoundedCalendarInputField({
     Key? key,
-    this.hintText,
+    required this.hintText,
+    required this.icon,
     this.controller,
     this.validator,
+    this.keyboardType,
+    required this.onTap,
+    this.onChange,
   }) : super(key: key);
-
-  @override
-  _MyPasswordFieldState createState() => _MyPasswordFieldState();
-}
-
-class _MyPasswordFieldState extends State<MyPasswordField> {
-  bool obscureText = true;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      obscureText: obscureText,
-      // controller: widget.controller,
-      cursorColor: AppColor.blue,
-      validator: widget.validator,
+      controller: controller,
+      cursorColor: AppColor.kPrimaryColor,
+      validator: validator,
+      keyboardType: keyboardType,
+      readOnly: true,
+      onTap: onTap,
+      onChanged: onChange,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.zero,
-        hintText: widget.hintText,
         filled: true,
         fillColor: Colors.white,
-        prefixIcon: const Icon(
-          Icons.lock,
+        prefixIcon: Icon(
+          icon,
           color: AppColor.blue,
         ),
-        suffixIcon: GestureDetector(
-          onTap: () {
-            setState(() {
-              obscureText = !obscureText;
-            });
-          },
-          child: Icon(
-            obscureText ? Icons.visibility : Icons.visibility_off,
-            color: AppColor.blue,
-          ),
-        ),
+        hintText: hintText,
         border: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.white, width: 0),
             borderRadius: BorderRadius.circular(200)),

@@ -1,3 +1,4 @@
+import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cauvongstore_mobile/src/model/category_model.dart';
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
@@ -30,6 +31,8 @@ class _HomePageState extends State<HomePage> {
   List<ProductModel> _products = <ProductModel>[];
   List<CategoryModel> categories = <CategoryModel>[];
   PageController pageController = PageController();
+  int pageCarousel = 0;
+
   @override
   void initState() {
     super.initState();
@@ -93,10 +96,23 @@ class _HomePageState extends State<HomePage> {
               enlargeCenterPage: true,
               enableInfiniteScroll: false,
               initialPage: 2,
-              autoPlay: true,
+              autoPlay: false,
+              onPageChanged: (index, _) => {
+                setState(() {
+                  pageCarousel = index;
+                })
+              },
             ),
             items: _buildImageSliders,
           ),
+          Center(
+            child: CarouselIndicator(
+                activeColor: Colors.black,
+                count: imgList.length,
+                index: pageCarousel,
+                color: Colors.grey),
+          ),
+
           const SizedBox(
             height: 10,
           ),
