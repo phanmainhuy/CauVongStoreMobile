@@ -2,7 +2,7 @@ import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:flutter/material.dart';
 
 class MyOrderPage extends StatelessWidget {
-  const MyOrderPage({super.key});
+  const MyOrderPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class MyOrderPage extends StatelessWidget {
 }
 
 class _MyOrderPage extends StatefulWidget {
-  const _MyOrderPage({super.key});
+  const _MyOrderPage({Key? key}) : super(key: key);
 
   @override
   State<_MyOrderPage> createState() => __MyOrderPageState();

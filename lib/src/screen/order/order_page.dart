@@ -6,7 +6,7 @@ import 'package:cauvongstore_mobile/src/utils/money_format.dart';
 import 'package:flutter/material.dart';
 
 class OrderPage extends StatelessWidget {
-  const OrderPage({super.key});
+  const OrderPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class OrderPage extends StatelessWidget {
 }
 
 class _OrderPage extends StatefulWidget {
-  const _OrderPage({super.key});
+  const _OrderPage({Key? key}) : super(key: key);
 
   @override
   State<_OrderPage> createState() => __OrderPageState();

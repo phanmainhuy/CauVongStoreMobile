@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:cauvongstore_mobile/src/utils/parse_hex_color.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({super.key});
+  const SplashPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class SplashPage extends StatelessWidget {
 }
 
 class _SplashPage extends StatefulWidget {
-  const _SplashPage({super.key});
+  const _SplashPage({Key? key}) : super(key: key);
 
   @override
   State<_SplashPage> createState() => __SplashPageState();

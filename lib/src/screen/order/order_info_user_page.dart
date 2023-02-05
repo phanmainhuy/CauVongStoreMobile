@@ -5,7 +5,7 @@ import 'package:cauvongstore_mobile/src/screen/order_successful/order_successful
 import 'package:flutter/material.dart';
 
 class OrderInfoUserPage extends StatefulWidget {
-  const OrderInfoUserPage({super.key});
+  const OrderInfoUserPage({Key? key}) : super(key: key);
 
   @override
   State<OrderInfoUserPage> createState() => _OrderInfoUserPageState();

@@ -2,6 +2,10 @@ import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:flutter/material.dart';
 
 class CartCounter extends StatefulWidget {
+  CartCounter({
+    Key? key,
+  }) : super(key: key);
+
   @override
   _CartCounterState createState() => _CartCounterState();
 }

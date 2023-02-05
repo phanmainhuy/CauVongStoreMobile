@@ -9,7 +9,7 @@ class ItemCard extends StatefulWidget {
   final VoidCallback? press;
   int numberBuy = 0;
   MoneyFormat _moneyFormat = MoneyFormat();
-  ItemCard({super.key, required this.product, this.press});
+  ItemCard({Key? key, required this.product, this.press}) : super(key: key);
 
   @override
   State<ItemCard> createState() => _ItemCardState();

@@ -48,7 +48,7 @@ class PromotionPage extends StatelessWidget {
 }
 
 class _PromotionPage extends StatefulWidget {
-  const _PromotionPage({super.key});
+  const _PromotionPage({Key? key}) : super(key: key);
 
   @override
   State<_PromotionPage> createState() => __PromotionPageState();

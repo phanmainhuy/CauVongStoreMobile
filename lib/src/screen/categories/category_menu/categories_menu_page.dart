@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CategoriesMenuPage extends StatelessWidget {
-  const CategoriesMenuPage({super.key});
+  const CategoriesMenuPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,9 @@ class CategoriesMenuPage extends StatelessWidget {
 }
 
 class _CategoriesMenuPage extends StatefulWidget {
-  const _CategoriesMenuPage({super.key});
+  const _CategoriesMenuPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<_CategoriesMenuPage> createState() => __CategoriesMenuPageState();

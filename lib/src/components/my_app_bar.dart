@@ -10,7 +10,8 @@ class MyAppBar extends StatefulWidget {
   final bool? enableSearch;
   final bool? enableCart;
 
-  const MyAppBar({super.key, this.title, this.enableSearch, this.enableCart});
+  const MyAppBar({Key? key, this.title, this.enableSearch, this.enableCart})
+      : super(key: key);
 
   @override
   State<MyAppBar> createState() => _MyAppBarState();

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_password_strength/flutter_password_strength.dart';
 
 class ChangePasswordPage extends StatelessWidget {
-  const ChangePasswordPage({super.key});
+  const ChangePasswordPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,9 @@ class ChangePasswordPage extends StatelessWidget {
 }
 
 class _ChangePasswordPage extends StatefulWidget {
-  const _ChangePasswordPage({super.key});
+  _ChangePasswordPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<_ChangePasswordPage> createState() => __ChangePasswordPageState();
