@@ -25,8 +25,6 @@ class __SplashPageState extends State<_SplashPage> {
   int _totalValue = 100;
   @override
   Widget build(BuildContext context) {
-    double deviceWidth = MediaQuery.of(context).size.width;
-    double deviceHeight = MediaQuery.of(context).size.height;
     return WillPopScope(
       onWillPop: () async {
         return false;
@@ -37,8 +35,8 @@ class __SplashPageState extends State<_SplashPage> {
         body: Center(
           child: SplashContent(
             // key: _splashContentState,
-            deviceHeight: deviceHeight,
-            deviceWidth: deviceWidth,
+            deviceHeight: MyDeviceUI(context).deviceHeight,
+            deviceWidth: MyDeviceUI(context).deviceWidth,
             loadingCompleted: () {
               Navigator.pushAndRemoveUntil(
                   context,

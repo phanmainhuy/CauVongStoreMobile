@@ -9,6 +9,7 @@ import 'package:cauvongstore_mobile/src/screen/categories/category_menu/categori
 import 'package:cauvongstore_mobile/src/screen/detail/detail_page.dart';
 import 'package:cauvongstore_mobile/src/screen/home/item_card.dart';
 import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
+import 'package:cauvongstore_mobile/src/screen/my_order/my_order_page.dart';
 import 'package:cauvongstore_mobile/src/screen/search/search_page.dart';
 import 'package:flutter/material.dart';
 import 'category_item.dart';
@@ -235,6 +236,37 @@ class _HomePageState extends State<HomePage> {
                 )),
           ))
       .toList();
+
+  Widget get _buildMyOrderButton => SizedBox(
+        height: 50,
+        child: ElevatedButton(
+          style: ButtonStyle(
+              // padding: MaterialStateProperty.all<EdgeInsets>(
+              //     const EdgeInsets.all(15)),
+              foregroundColor:
+                  MaterialStateProperty.all<Color>(AppColor.kPrimaryColor),
+              // backgroundColor: MaterialStateProperty.all<Color>(AppColor.blue),
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(19.0),
+                      side: const BorderSide(color: AppColor.kPrimaryColor)))),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MyOrderPage(),
+              ),
+            );
+          },
+          child: Text(
+            "mua".toUpperCase(),
+            style: const TextStyle(
+                color: AppColor.kPrimaryColor,
+                fontSize: FontSizeText.fontNormalSize),
+          ),
+        ),
+      );
 
   Widget get _buildCategories => SizedBox(
         height: 50,
