@@ -22,3 +22,16 @@ class API {
   static const String getOrderByID = '${Const.apiAddress}/order/';
   static const String getOrderListByUser = '${Const.apiAddress}/orders-by-user';
 }
+
+class APIStatus {
+  static const int apireturnERROR = -1;
+  static const int apireturnOK = 200;
+  static const int apireturnSUBMIT = 202;
+  static const int apireturnBADREQUEST = 400;
+  static const int apireturnUNAUTHORIZED = 401;
+  static const int apireturnFORBIDDEN = 403;
+  static const int apireturnNOTFOUND = 404;
+  static const int apireturnINTERNALSERVERERROR = 500;
+  static const int apireturnBADAPI = 502;
+  static const int apireturnTIMEOUT = 504;
+}
