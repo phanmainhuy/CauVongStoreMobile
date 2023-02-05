@@ -43,7 +43,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'Họ và tên',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -54,7 +54,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'Phan Mai Như Ý',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                             ),
                           ),
                         ),
@@ -69,7 +69,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'Số điện thoại',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -80,7 +80,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             '0123456789',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                             ),
                           ),
                         ),
@@ -96,7 +96,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'Email',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -107,7 +107,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'phanmainhuy@gmail.com',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                             ),
                           ),
                         ),
@@ -124,7 +124,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'Địa chỉ',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -135,7 +135,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'Tân Bình',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                             ),
                           ),
                         ),
@@ -151,7 +151,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'Ngày sinh',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -162,7 +162,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             '05-11-2000',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                             ),
                           ),
                         ),
@@ -178,7 +178,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             'Ngày tạo',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -189,7 +189,7 @@ class ProfilePage extends StatelessWidget {
                           child: Text(
                             '30-01-2023',
                             style: TextStyle(
-                              fontSize: FontSizeText.fontPriceSize,
+                              fontSize: FontSizeText.fontNormalSize,
                             ),
                           ),
                         ),

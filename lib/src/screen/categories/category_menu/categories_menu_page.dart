@@ -70,6 +70,7 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
   }
 
   Widget get _buildCard => Padding(
+        // add submenu products
         padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
         child: Card(
           elevation: 4.0,
@@ -80,7 +81,7 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
               title: Text(
                 categories[index].name,
                 style: const TextStyle(
-                  fontSize: FontSizeText.fontPriceSize,
+                  fontSize: FontSizeText.fontNormalSize,
                   fontWeight: FontWeight.bold,
                 ),
               ),

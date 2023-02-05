@@ -16,6 +16,7 @@ class DetailPage extends StatelessWidget {
       // each product have a color
       appBar: buildAppBar(context),
       body: Body(product: product),
+      // add products from category
     );
   }
 

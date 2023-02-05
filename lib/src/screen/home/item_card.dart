@@ -47,7 +47,7 @@ class _ItemCardState extends State<ItemCard> {
             widget._moneyFormat.moneyFormat('${widget.product.price}') + ' VND',
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: FontSizeText.fontPriceSize,
+              fontSize: FontSizeText.fontNormalSize,
             ),
           ),
           SizedBox(
@@ -78,7 +78,7 @@ class _ItemCardState extends State<ItemCard> {
                       "mua".toUpperCase(),
                       style: const TextStyle(
                           color: AppColor.kPrimaryColor,
-                          fontSize: FontSizeText.fontPriceSize),
+                          fontSize: FontSizeText.fontNormalSize),
                     ),
                   )
                 : Row(
@@ -98,7 +98,7 @@ class _ItemCardState extends State<ItemCard> {
                           // if our item is less  then 10 then  it shows 01 02 like that
                           widget.numberBuy.toString(),
                           style: const TextStyle(
-                            fontSize: FontSizeText.fontPriceSize,
+                            fontSize: FontSizeText.fontNormalSize,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),

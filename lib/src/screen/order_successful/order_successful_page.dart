@@ -8,12 +8,8 @@ class OrderSuccessfulPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Navigator.pop(
-          context,
-          MaterialPageRoute(
-            builder: (context) => MainPage(),
-          ),
-        );
+        Navigator.pushAndRemoveUntil(context,
+            MaterialPageRoute(builder: (context) => MainPage()), (_) => false);
         return true;
       },
       child: Scaffold(

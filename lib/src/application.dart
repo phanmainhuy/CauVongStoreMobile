@@ -1,4 +1,4 @@
-import 'package:cauvongstore_mobile/src/screen/main/main_page.dart';
+import 'package:cauvongstore_mobile/src/screen/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 // import 'base/di/locator.dart';
@@ -14,12 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        navigatorKey: navigatorKey,
-        theme: ThemeData(
-          primaryColor: AppColor.yellow,
-          iconTheme: const IconThemeData(color: Colors.white),
-        ),
-        debugShowCheckedModeBanner: false,
-        home: MainPage());
+      navigatorKey: navigatorKey,
+      theme: ThemeData(
+        primaryColor: AppColor.yellow,
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
+      debugShowCheckedModeBanner: false,
+      home: SplashPage(),
+    );
   }
 }

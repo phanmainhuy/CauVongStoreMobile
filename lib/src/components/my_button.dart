@@ -41,7 +41,7 @@ class MyButton extends StatelessWidget {
           name,
           style: TextStyle(
               color: textColor ?? Colors.white,
-              fontSize: FontSizeText.fontPriceSize),
+              fontSize: FontSizeText.fontNormalSize),
         ),
       ),
     );

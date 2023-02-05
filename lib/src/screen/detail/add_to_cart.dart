@@ -53,7 +53,7 @@ class AddToCart extends StatelessWidget {
                 child: Text(
                   "Mua ngay".toUpperCase(),
                   style: const TextStyle(
-                    fontSize: FontSizeText.fontPriceSize,
+                    fontSize: FontSizeText.fontNormalSize,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),

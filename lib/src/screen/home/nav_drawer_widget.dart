@@ -95,7 +95,7 @@ class NavDrawerWidget extends StatelessWidget {
       leading: Icon(icon, color: color),
       title: Text(text,
           style: const TextStyle(
-            fontSize: FontSizeText.fontPriceSize,
+            fontSize: FontSizeText.fontNormalSize,
             color: color,
           )),
       hoverColor: hoverColor,

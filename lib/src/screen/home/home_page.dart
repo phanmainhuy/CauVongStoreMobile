@@ -43,48 +43,70 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(
-            Icons.menu,
-            color: Colors.white,
+      appBar: PreferredSize(
+        // resize appbar
+        preferredSize: const Size.fromHeight(50.0),
+        child: AppBar(
+          leading: IconButton(
+            icon: const Icon(
+              Icons.menu,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CategoriesMenuPage()));
+            },
           ),
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => CategoriesMenuPage()));
-          },
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Image.network(
+                Const.imgLogoNetwork,
+                fit: BoxFit.contain,
+                height: 32,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Container(
+                padding: const EdgeInsets.all(1.0),
+                child: const Text('Trang chủ'),
+              ),
+            ],
+          ),
+          backgroundColor: AppColor.kPrimaryColor,
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.note_outlined),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
+            ),
+            IconButton(
+              icon: SvgPicture.asset("assets/icons/search.svg"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SearchPage()),
+                );
+              },
+            ),
+            IconButton(
+              icon: SvgPicture.asset("assets/icons/cart.svg"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CartPage()),
+                );
+              },
+            ),
+          ],
         ),
-        title: const Text('Trang chủ'),
-        backgroundColor: AppColor.kPrimaryColor,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.note_outlined),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginPage()),
-              );
-            },
-          ),
-          IconButton(
-            icon: SvgPicture.asset("assets/icons/search.svg"),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SearchPage()),
-              );
-            },
-          ),
-          IconButton(
-            icon: SvgPicture.asset("assets/icons/cart.svg"),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const CartPage()),
-              );
-            },
-          ),
-        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,27 +138,12 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 10,
           ),
-          // Text(
-          //   "Menu loại".toUpperCase(),
-          //   textAlign: TextAlign.center,
-          //   style: const TextStyle(
-          //       fontWeight: FontWeight.bold,
-          //       fontSize: FontSizeText.fontPriceSize,
-          //       color: Colors.black),
-          // ),
-          // const SizedBox(
-          //   height: 10,
-          // ),
-          // _buildCategories,
-          // const SizedBox(
-          //   height: 10,
-          // ),
           Text(
             "Sản phẩm khuyến mãi".toUpperCase(),
             textAlign: TextAlign.center,
             style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: FontSizeText.fontPriceSize,
+                fontSize: FontSizeText.fontNormalSize,
                 color: Colors.black),
           ),
           Expanded(
@@ -173,7 +180,7 @@ class _HomePageState extends State<HomePage> {
             textAlign: TextAlign.center,
             style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: FontSizeText.fontPriceSize,
+                fontSize: FontSizeText.fontNormalSize,
                 color: Colors.black),
           ),
           Expanded(
