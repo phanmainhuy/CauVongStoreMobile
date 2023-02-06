@@ -3,7 +3,7 @@ import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/detail/detail_page.dart';
-import 'package:cauvongstore_mobile/src/screen/home/item_card.dart';
+import 'package:cauvongstore_mobile/src/components/item_card.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {

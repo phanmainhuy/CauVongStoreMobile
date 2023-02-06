@@ -7,7 +7,7 @@ import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:cauvongstore_mobile/src/screen/categories/category_menu/categories_menu_page.dart';
 import 'package:cauvongstore_mobile/src/screen/detail/detail_page.dart';
-import 'package:cauvongstore_mobile/src/screen/home/item_card.dart';
+import 'package:cauvongstore_mobile/src/components/item_card.dart';
 import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
 import 'package:cauvongstore_mobile/src/screen/my_order/my_order_page.dart';
 import 'package:cauvongstore_mobile/src/screen/search/search_page.dart';
