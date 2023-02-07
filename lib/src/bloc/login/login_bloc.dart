@@ -17,10 +17,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           yield LoginProcessing(); // Stream login is in progress
           try {
             dynamic result =
-                await doLogin(submitLogin.phoneNumber, submitLogin.password);
+                await doLogin(submitLogin.username, submitLogin.password);
             if (result == 'LOGIN_SUCCESS') {
               // ダイアログが出てない時だけ読み取り
-              yield LoginSuccessState(phoneNumber: submitLogin.phoneNumber);
+              yield LoginSuccessState(username: submitLogin.username);
             } else {
               yield LoginFailState(
                   title: 'Login Failed',

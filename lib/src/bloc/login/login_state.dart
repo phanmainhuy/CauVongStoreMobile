@@ -10,9 +10,9 @@ class LoginInitialState extends LoginState with EquatableMixin {}
 class LoginProcessing extends LoginState with EquatableMixin {}
 
 class LoginSuccessState extends LoginState with EquatableMixin {
-  final String phoneNumber;
+  final String username;
 
-  LoginSuccessState({required this.phoneNumber});
+  LoginSuccessState({required this.username});
 }
 
 class LoginForgotPwdProcessing extends LoginState with EquatableMixin {}

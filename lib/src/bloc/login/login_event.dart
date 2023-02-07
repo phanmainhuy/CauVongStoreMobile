@@ -14,14 +14,14 @@ class LoginInitialEvent extends LoginEvent {
 
 // Login
 class SubmitLogin extends LoginEvent {
-  final String phoneNumber;
+  final String username;
   final String password;
 
-  SubmitLogin({required this.phoneNumber, required this.password});
+  SubmitLogin({required this.username, required this.password});
 
   @override
   List<Object> get props => [
-        phoneNumber,
+        username,
         password,
       ];
 }

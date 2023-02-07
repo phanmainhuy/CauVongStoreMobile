@@ -31,10 +31,11 @@ class _LoginPage extends StatefulWidget {
 
 class __LoginPageState extends State<_LoginPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  TextEditingController username = TextEditingController();
-  TextEditingController password = TextEditingController();
+  TextEditingController usernameCtr = TextEditingController();
+  TextEditingController passwordCtr = TextEditingController();
   LoginBloc loginBloc = LoginBloc();
   LoginModel _loginData = LoginModel();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -52,6 +53,7 @@ class __LoginPageState extends State<_LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.white,
       body: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) async {
@@ -90,7 +92,8 @@ class __LoginPageState extends State<_LoginPage> {
     return Center(
       child: SingleChildScrollView(
         child: Form(
-          // key: formKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -101,7 +104,7 @@ class __LoginPageState extends State<_LoginPage> {
                   icon: Icons.phone,
                   keyboardType: TextInputType.phone,
                   hintText: "Nhập số điện thoại",
-                  controller: username,
+                  controller: usernameCtr,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Vui lòng nhập số điện thoại';
@@ -118,7 +121,7 @@ class __LoginPageState extends State<_LoginPage> {
                 width: 330,
                 child: MyPasswordField(
                   hintText: 'Mật khẩu',
-                  controller: password,
+                  controller: passwordCtr,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Phải nhập mật khẩu';
@@ -154,8 +157,13 @@ class __LoginPageState extends State<_LoginPage> {
                               borderRadius: BorderRadius.circular(19.0),
                               side: const BorderSide(color: Colors.white)))),
                   onPressed: () => {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => MainPage()))
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => MainPage(),
+                    //   ),
+                    // ),
+                    onSubmitLogin()
                   },
                   child: Text(
                     "Đăng nhập".toUpperCase(),
@@ -198,6 +206,29 @@ class __LoginPageState extends State<_LoginPage> {
         ),
       ),
     );
+  }
+
+  onSubmitLogin() {
+    if (_formKey.currentState == null) {
+      print('----------------212-----------------');
+
+      return;
+    }
+    if (_formKey.currentState!.validate()) {
+      print('----------------215-----------------');
+      // If the form is valid, display a snackbar. In the real world,
+      // you'd often call a server or save the information in a database.
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Processing Data')),
+      );
+      return;
+    }
+    print('------------username166---------------');
+    print(usernameCtr.text);
+    _loginData.username = usernameCtr.text;
+    _loginData.password = passwordCtr.text;
+    loginBloc.add(
+        SubmitLogin(username: usernameCtr.text, password: passwordCtr.text));
   }
 }
 
