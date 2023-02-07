@@ -5,7 +5,7 @@ import 'text_field_container.dart';
 
 class RoundedInputField extends StatelessWidget {
   final String hintText;
-  // final TextEditingController controller;
+  final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
   final IconData icon;
   final TextInputType? keyboardType;
@@ -16,7 +16,7 @@ class RoundedInputField extends StatelessWidget {
     required this.hintText,
     required this.icon,
     this.length,
-    // required this.controller,
+    this.controller,
     this.validator,
     this.keyboardType,
   }) : super(key: key);
@@ -24,7 +24,7 @@ class RoundedInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      // controller: controller,
+      controller: controller,
       maxLength: length,
       cursorColor: AppColor.blue,
       validator: validator,

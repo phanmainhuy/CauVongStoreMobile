@@ -1,104 +1,199 @@
+import 'package:cauvongstore_mobile/src/bloc/login/login_bloc.dart';
+import 'package:cauvongstore_mobile/src/bloc/login/login_event.dart';
+import 'package:cauvongstore_mobile/src/bloc/login/login_state.dart';
 import 'package:cauvongstore_mobile/src/components/rounded_input_field.dart';
 import 'package:cauvongstore_mobile/src/components/rounded_password_field.dart';
+import 'package:cauvongstore_mobile/src/model/login_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/app_drawable.dart';
 import 'package:cauvongstore_mobile/src/screen/main/main_page.dart';
+import 'package:cauvongstore_mobile/src/screen/register/register_page.dart';
 import 'package:cauvongstore_mobile/src/utils/validator.dart';
 import 'package:flutter/material.dart';
-
-import '../register/register_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
-  // TextEditingController password;
-  // TextEditingController email;
+  LoginPage({Key? key}) : super(key: key);
   // GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    return _LoginPage();
+  }
+}
+
+class _LoginPage extends StatefulWidget {
+  const _LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<_LoginPage> createState() => __LoginPageState();
+}
+
+class __LoginPageState extends State<_LoginPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  TextEditingController username = TextEditingController();
+  TextEditingController password = TextEditingController();
+  LoginBloc loginBloc = LoginBloc();
+  LoginModel _loginData = LoginModel();
+
+  @override
+  void initState() {
+    loginBloc = LoginBloc();
+    super.initState();
+    // loginBloc.add(LoginInitialEvent());
+  }
+
+  @override
+  void dispose() {
+    loginBloc.close();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: SingleChildScrollView(
-          child: Form(
-            // key: formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                AppDrawable.logo(width: size.width * 0.60),
-                SizedBox(
-                  width: 330,
-                  child: RoundedInputField(
-                    icon: Icons.phone,
-                    keyboardType: TextInputType.phone,
-                    hintText: "Nhập số điện thoại",
-                    // controller: email,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Vui lòng nhập số điện thoại';
-                      }
-                      if (value.length != 10) {
-                        return 'vui lòng nhập chuỗi số gồm 10 ký tư';
-                      }
-                      return null;
+      body: BlocConsumer<LoginBloc, LoginState>(
+        listener: (context, state) async {
+          switch (state.runtimeType) {
+            case LoginSuccessState:
+              {
+                print('LOGIN SUCCESSFUL');
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return MainPage();
                     },
                   ),
+                );
+              }
+              break;
+            case LoginFailState:
+              {
+                print('LOGIN SUCCESSFUL');
+                print('LOGIN SUCCESSFUL');
+                print('LOGIN SUCCESSFUL');
+              }
+              break;
+          }
+        },
+        builder: (context, state) {
+          return _bodyLogin(context);
+        },
+      ),
+    );
+  }
+
+  _bodyLogin(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Center(
+      child: SingleChildScrollView(
+        child: Form(
+          // key: formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              AppDrawable.logo(width: size.width * 0.60),
+              SizedBox(
+                width: 330,
+                child: RoundedInputField(
+                  icon: Icons.phone,
+                  keyboardType: TextInputType.phone,
+                  hintText: "Nhập số điện thoại",
+                  controller: username,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Vui lòng nhập số điện thoại';
+                    }
+                    if (value.length != 10) {
+                      return 'vui lòng nhập chuỗi số gồm 10 ký tư';
+                    }
+                    return null;
+                  },
                 ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: 330,
-                  child: MyPasswordField(
-                    hintText: 'Mật khẩu',
-                    // controller: password,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Phải nhập mật khẩu';
-                      }
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: 330,
+                child: MyPasswordField(
+                  hintText: 'Mật khẩu',
+                  controller: password,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Phải nhập mật khẩu';
+                    }
 
-                      if (value.length < 8) {
-                        return 'Mật khẩu phải lớn hơn 8 kí tự';
-                      }
+                    if (value.length < 8) {
+                      return 'Mật khẩu phải lớn hơn 8 kí tự';
+                    }
 
-                      return null;
-                    },
+                    return null;
+                  },
+                ),
+              ),
+              buildRememberPassword(),
+              const SizedBox(height: 10),
+              SizedBox(
+                width: 330,
+                height: 50,
+                child:
+                    // isLoading
+                    //     ? const Center(child: CircularProgressIndicator())
+                    //     :
+                    ElevatedButton(
+                  style: ButtonStyle(
+                      padding: MaterialStateProperty.all<EdgeInsets>(
+                          const EdgeInsets.all(15)),
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(AppColor.blue),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(19.0),
+                              side: const BorderSide(color: Colors.white)))),
+                  onPressed: () => {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => MainPage()))
+                  },
+                  child: Text(
+                    "Đăng nhập".toUpperCase(),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ),
-                buildRememberPassword(),
-                const SizedBox(height: 10),
-                buildLoginButton(),
-                const SizedBox(height: 10),
-                SizedBox(
-                  width: 330,
-                  height: 50,
-                  child: ElevatedButton(
-                    child: Text("Đăng ký tài khoản".toUpperCase(),
-                        style: const TextStyle(fontSize: 15)),
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                            const EdgeInsets.all(15)),
-                        foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white),
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(AppColor.blue),
-                        shape: MaterialStateProperty
-                            .all<RoundedRectangleBorder>(RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(19.0),
-                                side: const BorderSide(color: Colors.white)))),
-                    onPressed: () => {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return RegisterPage();
-                          },
-                        ),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                width: 330,
+                height: 50,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      padding: MaterialStateProperty.all<EdgeInsets>(
+                          const EdgeInsets.all(15)),
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(AppColor.blue),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(19.0),
+                              side: const BorderSide(color: Colors.white)))),
+                  onPressed: () => {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return RegisterPage();
+                        },
                       ),
-                    },
-                  ),
+                    ),
+                  },
+                  child: Text("Đăng ký tài khoản".toUpperCase(),
+                      style: const TextStyle(fontSize: 15)),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -168,34 +263,11 @@ class CheckBoxRemember extends StatelessWidget {
   }
 }
 
-class buildLoginButton extends StatelessWidget {
-  buildLoginButton({Key? key}) : super(key: key);
-  bool isLoading = false;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-        width: 330,
-        height: 50,
-        child: isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : ElevatedButton(
-                child: Text("Đăng nhập".toUpperCase(),
-                    style: const TextStyle(fontSize: 15)),
-                style: ButtonStyle(
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                        const EdgeInsets.all(15)),
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(AppColor.blue),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(19.0),
-                            side: const BorderSide(color: Colors.white)))),
-                onPressed: () => {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => MainPage()))
-                },
-              ));
-  }
-}
+// class buildLoginButton extends StatelessWidget {
+//   buildLoginButton({Key? key}) : super(key: key);
+//   bool isLoading = false;
+//   @override
+//   Widget build(BuildContext context) {
+//     return ;
+//   }
+// }

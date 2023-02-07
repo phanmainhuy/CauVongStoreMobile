@@ -220,7 +220,7 @@ class ProfilePage extends StatelessWidget {
                       name: "Đăng xuất",
                       onPressed: () => {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const LoginPage(),
+                          builder: (context) => LoginPage(),
                         ))
                       },
                     ),
