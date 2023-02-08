@@ -14,14 +14,14 @@ Future<dynamic> doLogin(String phoneNumber, String password) async {
 
     // Check invalid phoneNumber
     Result rs;
-    rs = mailAdressChecker(phoneNumber);
-    if (rs.status == false) {
-      return rs.errorMessage;
-    }
-    rs = passwordChecker(password);
-    if (rs.status == false) {
-      return rs.errorMessage;
-    }
+    // rs = mailAdressChecker(phoneNumber);
+    // if (rs.status == false) {
+    //   return rs.errorMessage;
+    // }
+    // rs = passwordChecker(password);
+    // if (rs.status == false) {
+    //   return rs.errorMessage;
+    // }
 
     passSave = password;
 
@@ -57,22 +57,22 @@ Future<dynamic> doLogin(String phoneNumber, String password) async {
       'password': password, // passhash.toString(),
     });
 
-    // print(url);
-
     final response = await http.post(
       uri,
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
       body: body,
     );
-
+    print('---------statusCode_Login---------');
     print(response.statusCode.toString());
     print(response.body);
+    print('---------statusCode_Login---------');
 
-    String auth = response.headers['x-amzn-remapped-www-authenticate']!;
-    Map<String, dynamic> lstRes =
-        new Map<String, dynamic>.from(json.decode(response.body));
-
-    print(lstRes);
-    if (response.statusCode == 200) {
+    if (response.statusCode == APIStatus.apireturnOK) {
+      Map<String, dynamic> lstRes =
+          new Map<String, dynamic>.from(json.decode(response.body));
       int startTime = new DateTime.now().millisecondsSinceEpoch;
       await localStorage.write(
           key: KeyLocalStorage.keyPhoneNumber, value: phoneNumber);
@@ -82,14 +82,20 @@ Future<dynamic> doLogin(String phoneNumber, String password) async {
           key: KeyLocalStorage.keyUsername, value: phoneNumber);
       return 'LOGIN_SUCCESS';
     } else if (response.statusCode == APIStatus.apireturnUNAUTHORIZED) {
-      return 'MSG_LOGIN_INVALID_USER_PASSWORD';
+      print('LOGIN_INVALID_USER_PASSWORD');
+      return 'LOGIN_INVALID_USER_PASSWORD';
+    } else if (response.statusCode == 415) {
+      print('LOGIN_INVALID_USER_PASSWORD 415');
+      return 'LOGIN_INVALID_USER_PASSWORD';
     } else if (response.statusCode == APIStatus.apireturnBADREQUEST) {
       return 'MAINTENANCE_LOGIN';
     } else {
+      print('LOGIN_FAIL');
       // If that response was not OK, throw an error.
       return 'LOGIN_FAIL';
     }
   } catch (e) {
+    print('LOGIN_FAIL catch');
     print(e.toString());
     return e;
   }

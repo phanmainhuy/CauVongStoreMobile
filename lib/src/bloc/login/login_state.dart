@@ -39,5 +39,5 @@ class LoginFailState extends LoginState {
   LoginFailState({required this.title, required this.error});
 
   @override
-  List<Object> get props => [this.title, this.error];
+  List<Object> get props => [title, error];
 }

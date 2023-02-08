@@ -5,6 +5,7 @@ class MyPasswordField extends StatefulWidget {
   final TextEditingController? controller;
   final String? hintText;
   final FormFieldValidator<String>? validator;
+  // final ValueChanged<String>? onChange;
 
   const MyPasswordField({
     Key? key,
@@ -24,7 +25,7 @@ class _MyPasswordFieldState extends State<MyPasswordField> {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: obscureText,
-      // controller: widget.controller,
+      controller: widget.controller,
       cursorColor: AppColor.blue,
       validator: widget.validator,
       decoration: InputDecoration(

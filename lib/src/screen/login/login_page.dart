@@ -36,6 +36,7 @@ class __LoginPageState extends State<_LoginPage> {
   LoginBloc loginBloc = LoginBloc();
   LoginModel _loginData = LoginModel();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool isLoading = false;
 
   @override
   void initState() {
@@ -61,6 +62,9 @@ class __LoginPageState extends State<_LoginPage> {
             case LoginSuccessState:
               {
                 print('LOGIN SUCCESSFUL');
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Processing Data')),
+                );
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
@@ -73,9 +77,9 @@ class __LoginPageState extends State<_LoginPage> {
               break;
             case LoginFailState:
               {
-                print('LOGIN SUCCESSFUL');
-                print('LOGIN SUCCESSFUL');
-                print('LOGIN SUCCESSFUL');
+                print('LOGIN LoginFailState');
+                print('LOGIN LoginFailState');
+                print('LOGIN LoginFailState');
               }
               break;
           }
@@ -210,25 +214,18 @@ class __LoginPageState extends State<_LoginPage> {
 
   onSubmitLogin() {
     if (_formKey.currentState == null) {
-      print('----------------212-----------------');
-
       return;
     }
     if (_formKey.currentState!.validate()) {
-      print('----------------215-----------------');
       // If the form is valid, display a snackbar. In the real world,
       // you'd often call a server or save the information in a database.
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Processing Data')),
-      );
+      _loginData.username = usernameCtr.text;
+      _loginData.password = passwordCtr.text;
+      loginBloc.add(
+          SubmitLogin(username: usernameCtr.text, password: passwordCtr.text));
+    } else {
       return;
     }
-    print('------------username166---------------');
-    print(usernameCtr.text);
-    _loginData.username = usernameCtr.text;
-    _loginData.password = passwordCtr.text;
-    loginBloc.add(
-        SubmitLogin(username: usernameCtr.text, password: passwordCtr.text));
   }
 }
 
@@ -288,17 +285,10 @@ class CheckBoxRemember extends StatelessWidget {
     return Checkbox(
       checkColor: Colors.white,
       fillColor: MaterialStateProperty.resolveWith(getColor),
-      value: value, onChanged: (bool? value) {},
-      // onChanged?.call(value ?? false);
+      value: value,
+      onChanged: (bool? value) {
+        // onChanged?.call(value ?? false);
+      },
     );
   }
 }
-
-// class buildLoginButton extends StatelessWidget {
-//   buildLoginButton({Key? key}) : super(key: key);
-//   bool isLoading = false;
-//   @override
-//   Widget build(BuildContext context) {
-//     return ;
-//   }
-// }
