@@ -1,13 +1,13 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+// import 'package:bloc/bloc.dart';
+// import 'package:meta/meta.dart';
 
-part 'change_password_event.dart';
-part 'change_password_state.dart';
+// part 'change_password_event.dart';
+// part 'change_password_state.dart';
 
-class ChangePasswordBloc extends Bloc<ChangePasswordEvent, ChangePasswordState> {
-  ChangePasswordBloc() : super(ChangePasswordInitial()) {
-    on<ChangePasswordEvent>((event, emit) {
-      // TODO: implement event handler
-    });
-  }
-}
+// class ChangePasswordBloc extends Bloc<ChangePasswordEvent, ChangePasswordState> {
+//   ChangePasswordBloc() : super(ChangePasswordInitial()) {
+//     on<ChangePasswordEvent>((event, emit) {
+//       // TODO: implement event handler
+//     });
+//   }
+// }

@@ -1,13 +1,13 @@
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
+// import 'package:bloc/bloc.dart';
+// import 'package:cauvongstore_mobile/src/bloc/home/home_event.dart';
+// import 'package:cauvongstore_mobile/src/bloc/home/home_state.dart';
+// import 'package:equatable/equatable.dart';
 
-part 'home_event.dart';
-part 'home_state.dart';
 
-class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc() : super(HomeInitial()) {
-    on<HomeEvent>((event, emit) {
-      // TODO: implement event handler
-    });
-  }
-}
+// class HomeBloc extends Bloc<HomeEvent, HomeState> {
+//   HomeBloc() : super(HomeInitial()) {
+//     <HomeEvent>((event, emit) {
+//       // TODO: implement event handler
+//     });
+//   }
+// }

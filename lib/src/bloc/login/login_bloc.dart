@@ -15,13 +15,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           SubmitLogin submitLogin = event as SubmitLogin;
           // yield LoginProcessing(); // Stream login is in progress
           try {
-            // await doLogin(submitLogin.username, submitLogin.password);
-
             dynamic result =
                 await doLogin(submitLogin.username, submitLogin.password);
-            print('-------result-------');
-            print(result);
-            print('-------result-------');
             if (result == null) {
               yield LoginFailState(
                   title: 'Login Failed',

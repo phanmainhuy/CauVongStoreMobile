@@ -5,6 +5,7 @@ import 'package:cauvongstore_mobile/src/components/rounded_input_field.dart';
 import 'package:cauvongstore_mobile/src/components/rounded_password_field.dart';
 import 'package:cauvongstore_mobile/src/model/login_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
+import 'package:cauvongstore_mobile/src/resources/app_dialog.dart';
 import 'package:cauvongstore_mobile/src/resources/app_drawable.dart';
 import 'package:cauvongstore_mobile/src/screen/main/main_page.dart';
 import 'package:cauvongstore_mobile/src/screen/register/register_page.dart';
@@ -42,7 +43,7 @@ class __LoginPageState extends State<_LoginPage> {
   void initState() {
     loginBloc = LoginBloc();
     super.initState();
-    // loginBloc.add(LoginInitialEvent());
+    loginBloc.add(LoginInitialEvent());
   }
 
   @override
@@ -57,14 +58,11 @@ class __LoginPageState extends State<_LoginPage> {
       key: _scaffoldKey,
       backgroundColor: Colors.white,
       body: BlocConsumer<LoginBloc, LoginState>(
+        cubit: loginBloc,
         listener: (context, state) async {
           switch (state.runtimeType) {
             case LoginSuccessState:
               {
-                print('LOGIN SUCCESSFUL');
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Processing Data')),
-                );
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
@@ -77,9 +75,8 @@ class __LoginPageState extends State<_LoginPage> {
               break;
             case LoginFailState:
               {
-                print('LOGIN LoginFailState');
-                print('LOGIN LoginFailState');
-                print('LOGIN LoginFailState');
+                DispErrorMsg.show(
+                    context: context, msg: 'Sai tên đăng nhập hoặc mật khẩu');
               }
               break;
           }

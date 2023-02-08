@@ -69,7 +69,6 @@ Future<dynamic> doLogin(String phoneNumber, String password) async {
     print(response.statusCode.toString());
     print(response.body);
     print('---------statusCode_Login---------');
-
     if (response.statusCode == APIStatus.apireturnOK) {
       Map<String, dynamic> lstRes =
           new Map<String, dynamic>.from(json.decode(response.body));

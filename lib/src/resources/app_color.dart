@@ -9,6 +9,9 @@ class AppColor {
   static const green = Color(0xF09EDE82);
   static const kFontColor = Color(0xFFCBC1C1);
   static const kTextColor = Color(0xFF535353);
+  static const blueDialog = Color(0xff1A3FBC);
+  static const lightBlueDialog = Color(0xff0A7BE8);
+  static const darkBlueDialog = Color(0xff1B39B7);
 }
 
 class HexColor {

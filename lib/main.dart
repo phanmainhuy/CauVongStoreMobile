@@ -24,10 +24,10 @@ void main() async {
           create: (_) => LoginBloc(),
           child: LoginPage(),
         ),
-        BlocProvider(
-          create: (_) => HomeBloc(),
-          child: HomePage(),
-        ),
+        // BlocProvider(
+        //   create: (_) => HomeBloc(),
+        //   child: HomePage(),
+        // ),
       ],
     ),
   );
