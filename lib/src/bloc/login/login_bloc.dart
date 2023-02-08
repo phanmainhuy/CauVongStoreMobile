@@ -12,19 +12,29 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         break;
       case SubmitLogin:
         {
-          // ログイン認証処理
           SubmitLogin submitLogin = event as SubmitLogin;
-          yield LoginProcessing(); // Stream login is in progress
+          // yield LoginProcessing(); // Stream login is in progress
           try {
+            // await doLogin(submitLogin.username, submitLogin.password);
+
             dynamic result =
                 await doLogin(submitLogin.username, submitLogin.password);
-            if (result == 'LOGIN_SUCCESS') {
-              // ダイアログが出てない時だけ読み取り
-              yield LoginSuccessState(username: submitLogin.username);
-            } else {
+            print('-------result-------');
+            print(result);
+            print('-------result-------');
+            if (result == null) {
               yield LoginFailState(
                   title: 'Login Failed',
                   error: result.toString()); // Stream login is failed
+            }
+            if (result == 'LOGIN_SUCCESS') {
+              print('LOGIN_SUCCESS');
+              yield LoginSuccessState(username: submitLogin.username);
+            } else {
+              print('LOGIN_INVALID_USER_PASSWORD');
+              yield LoginFailState(
+                  title: 'Login Failed',
+                  error: 'Login Failed'); // Stream login is failed
             }
           } catch (e) {
             yield LoginFailState(
