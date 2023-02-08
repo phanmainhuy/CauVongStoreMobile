@@ -162,8 +162,6 @@ class _RegisterPage extends StatelessWidget {
         width: 330,
         height: 50,
         child: ElevatedButton(
-          child: Text("HỦY BỎ".toUpperCase(),
-              style: const TextStyle(fontSize: 15)),
           style: ButtonStyle(
               padding: MaterialStateProperty.all<EdgeInsets>(
                   const EdgeInsets.all(15)),
@@ -183,6 +181,8 @@ class _RegisterPage extends StatelessWidget {
               ),
             );
           },
+          child: Text("HỦY BỎ".toUpperCase(),
+              style: const TextStyle(fontSize: 15)),
         ),
       );
 
@@ -190,8 +190,6 @@ class _RegisterPage extends StatelessWidget {
         width: 330,
         height: 50,
         child: ElevatedButton(
-          child: Text("Đăng ký tài khoản".toUpperCase(),
-              style: const TextStyle(fontSize: 15)),
           style: ButtonStyle(
               padding: MaterialStateProperty.all<EdgeInsets>(
                   const EdgeInsets.all(15)),
@@ -205,6 +203,8 @@ class _RegisterPage extends StatelessWidget {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => MainPage()));
           },
+          child: Text("Đăng ký tài khoản".toUpperCase(),
+              style: const TextStyle(fontSize: 15)),
         ),
       );
 }
