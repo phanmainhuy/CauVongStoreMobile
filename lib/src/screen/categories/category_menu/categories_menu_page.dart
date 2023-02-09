@@ -79,77 +79,78 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
         child: Card(
           elevation: 4.0,
           child: ListView.separated(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: categories.length,
               shrinkWrap: true,
               separatorBuilder: (_, index) => const SizedBox(height: 15),
               itemBuilder: (_, index) {
-                // ListTile(
-                //   title: Text(
-                //     categories[index].name,
-                //     style: const TextStyle(
-                //       fontSize: FontSizeText.fontNormalSize,
-                //       fontWeight: FontWeight.bold,
-                //     ),
-                //   ),
-                //   trailing: IconButton(
-                //     icon: Icon(
-                //       Icons.navigate_next,
-                //       color: Colors.grey,
-                //     ),
-                //     onPressed: () {},
-                //   ),
-                // ),
-                ExpansionTile(
+                return ExpansionTile(
                   title: Text(
                     categories[index].name,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  children: _products.subMenu.map(_buildList).toList(),
+                  children: [
+                    ..._products.map((e) {
+                      if (e.categoryId == categories[index].id) {
+                        // return ListTile(
+                        //   title: Text(
+                        //     _products[index].name,
+                        //     style: const TextStyle(fontSize: 17),
+                        //   ),
+                        //   // children: list.subMenu.map(_buildList).toList(),
+                        // );
+                        return ListTile(
+                          onTap: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => ProductModel(list.name))),
+                          },
+                          leading: SizedBox(
+                            width: 70,
+                            height: 70,
+                            child: Image.network(
+                              _products[index].image,
+                            ),
+                          ),
+                          title: Text(
+                            _products[index].name,
+                            style: const TextStyle(
+                              fontSize: 17,
+                            ),
+                          ),
+                        );
+                      }
+                      return const SizedBox.shrink();
+                    }).toList(),
+                  ],
                 );
               }),
         ),
       );
 
-  Widget _buildList(ProductModel list) {
-    // if (list.name.isEmpty)
-    //   return Builder(builder: (context) {
-    //     return ListTile(
-    //         onTap: () => Navigator.push(
-    //             context,
-    //             MaterialPageRoute(
-    //                 builder: (context) => SubCategory(list.name))),
-    //         leading: SizedBox(),
-    //         title: Text(list.name));
-    //   });
-    return ExpansionTile(
-      title: Text(
-        list.name,
-        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-      ),
-      children: list.subMenu.map(_buildList).toList(),
-    );
-  }
-
   void _createCategoryData() {
-    var list = <CategoryModel>[
+    var listCategories = <CategoryModel>[
       CategoryModel(
         image:
             'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
         name: 'Trái cây',
-        id: 'Sữa các loại',
+        id: '2',
       ),
       CategoryModel(
         image:
             'https://tapchicongthuong.vn/images/19/9/19/6-mon-tuyet-doi-dung-nau-voi-thit-lon.jpg',
         name: 'Thịt',
-        id: 'Sữa các loại',
+        id: '3',
       ),
       CategoryModel(
         image:
             'https://cdn.tgdd.vn/Files/2017/10/26/1036030/rau-xa-lach-cong-dung-va-cach-phan-biet-cac-loai-xa-lach-202201191047303747.jpg',
         name: 'Rau',
-        id: 'Sữa các loại',
+        id: '4',
       ),
       CategoryModel(
         image:
@@ -157,66 +158,109 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
         name: 'Sữa',
         id: '1',
       ),
+      CategoryModel(
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Test',
+        id: '5',
+      ),
+      CategoryModel(
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Test',
+        id: '7',
+      ),
+      CategoryModel(
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Test',
+        id: '8',
+      ),
+      CategoryModel(
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Test',
+        id: '11',
+      ),
+      CategoryModel(
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Test',
+        id: '12',
+      ),
+      CategoryModel(
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Test',
+        id: '13',
+      ),
+      CategoryModel(
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Test',
+        id: '14',
+      ),
+      CategoryModel(
+        image:
+            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+        name: 'Test',
+        id: '15',
+      ),
     ];
-    setState(() {
-      categories = list;
-    });
-  }
+    var listProduct = <ProductModel>[
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '1',
+          image:
+              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '9',
+          image:
+              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa chua dinh dưỡng',
+          id: '0',
+          image:
+              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '2',
+          image:
+              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '2',
+          image:
+              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: '2',
+          image:
+              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '2'),
+    ];
 
-  //Set cung data
-  void _createProductData() {
-    var list = <ProductModel>[
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-    ];
     setState(() {
-      _products = list;
+      categories = listCategories;
+      _products = listProduct;
     });
   }
 }

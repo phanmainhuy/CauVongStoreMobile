@@ -14,14 +14,13 @@ class ProductModel {
       required this.categoryId,
       this.description});
 
-  // factory ProductModel.fromJson(
-  //     {required String id, required Map<String, dynamic> data}) {
-  //   return ProductModel(
-  //       name: data['name'],
-  //       id: id,
-  //       image: data['image'],
-  //       categoryId: data['category'],
-  //       description: data['descript'],
-  //       price: int.tryParse(data['price']));
-  // }
+  factory ProductModel.fromJson({required Map<String, dynamic> data}) {
+    return ProductModel(
+        name: data['name'],
+        id: data['id'],
+        image: data['image'],
+        categoryId: data['category'],
+        description: data['descript'],
+        price: int.tryParse(data['price']));
+  }
 }
