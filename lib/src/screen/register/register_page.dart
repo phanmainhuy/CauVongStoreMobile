@@ -21,13 +21,6 @@ class RegisterPage extends StatelessWidget {
   }
 }
 
-// class _RegisterPage extends StatelessWidget {
-//   const _RegisterPage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-
-//   }
 class _RegisterPage extends StatefulWidget {
   const _RegisterPage({Key? key}) : super(key: key);
 
