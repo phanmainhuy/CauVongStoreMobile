@@ -1,8 +1,10 @@
 // import 'package:cauvongstore_mobile/src/services/local/shared_prefs.dart';
 import 'package:cauvongstore_mobile/src/bloc/home/home_bloc.dart';
 import 'package:cauvongstore_mobile/src/bloc/login/login_bloc.dart';
+import 'package:cauvongstore_mobile/src/bloc/register/register_bloc.dart';
 import 'package:cauvongstore_mobile/src/screen/home/home_page.dart';
 import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
+import 'package:cauvongstore_mobile/src/screen/register/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,6 +30,10 @@ void main() async {
         //   create: (_) => HomeBloc(),
         //   child: HomePage(),
         // ),
+        BlocProvider(
+          create: (_) => RegisterBloc(),
+          child: RegisterPage(),
+        ),
       ],
     ),
   );

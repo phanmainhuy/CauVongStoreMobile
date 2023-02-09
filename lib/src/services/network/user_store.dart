@@ -99,3 +99,63 @@ Future<dynamic> doLogin(String phoneNumber, String password) async {
     return e;
   }
 }
+
+Future<dynamic> doRegister(
+  String firstName,
+  String lastName,
+  String phoneNumber,
+  String password,
+  String dateOfBirth,
+) async {
+  try {
+    String url = '';
+    String passSave = '';
+
+    // set url API SignIn
+    url = API.postRegister;
+    Uri uri = Uri.parse(url);
+
+    //create body of request
+    var body = json.encode({
+      "firstName": firstName,
+      "lastName": lastName,
+      "phoneNumber": phoneNumber,
+      "username": phoneNumber,
+      "password": password,
+      "dateOfBirth": dateOfBirth
+    });
+
+    final response = await http.post(
+      uri,
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: body,
+    );
+    print('---------statusCode_Register---------');
+    print(response.statusCode.toString());
+    // print(response.body);
+    print('---------statusCode_Register---------');
+    if (response.statusCode == APIStatus.apireturnOK) {
+      print('REGISTER_SUCCESS');
+      return 'REGISTER_SUCCESS';
+    } else if (response.statusCode == APIStatus.apireturnUNAUTHORIZED) {
+      print('REGISTER_FAIL');
+      return 'REGISTER_FAIL';
+    } else if (response.statusCode == 415) {
+      print('REGISTER_FAIL 415');
+      return 'REGISTER_FAIL';
+    } else if (response.statusCode == APIStatus.apireturnBADREQUEST) {
+      return 400;
+    } else {
+      print('REGISTER_FAIL');
+      // If that response was not OK, throw an error.
+      return 'REGISTER_FAIL';
+    }
+  } catch (e) {
+    print('REGISTER_FAIL catch');
+    print(e.toString());
+    return e;
+  }
+}
