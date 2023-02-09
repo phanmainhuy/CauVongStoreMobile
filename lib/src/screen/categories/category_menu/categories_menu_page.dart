@@ -1,4 +1,5 @@
 import 'package:cauvongstore_mobile/src/model/category_model.dart';
+import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
@@ -26,6 +27,7 @@ class _CategoriesMenuPage extends StatefulWidget {
 
 class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
   List<CategoryModel> categories = <CategoryModel>[];
+  List<ProductModel> _products = <ProductModel>[];
 
   @override
   void initState() {
@@ -77,27 +79,57 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
         child: Card(
           elevation: 4.0,
           child: ListView.separated(
-            itemCount: categories.length,
-            separatorBuilder: (_, index) => const SizedBox(height: 15),
-            itemBuilder: (_, index) => ListTile(
-              title: Text(
-                categories[index].name,
-                style: const TextStyle(
-                  fontSize: FontSizeText.fontNormalSize,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              trailing: IconButton(
-                icon: Icon(
-                  Icons.navigate_next,
-                  color: Colors.grey,
-                ),
-                onPressed: () {},
-              ),
-            ),
-          ),
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: categories.length,
+              shrinkWrap: true,
+              separatorBuilder: (_, index) => const SizedBox(height: 15),
+              itemBuilder: (_, index) {
+                // ListTile(
+                //   title: Text(
+                //     categories[index].name,
+                //     style: const TextStyle(
+                //       fontSize: FontSizeText.fontNormalSize,
+                //       fontWeight: FontWeight.bold,
+                //     ),
+                //   ),
+                //   trailing: IconButton(
+                //     icon: Icon(
+                //       Icons.navigate_next,
+                //       color: Colors.grey,
+                //     ),
+                //     onPressed: () {},
+                //   ),
+                // ),
+                ExpansionTile(
+                  title: Text(
+                    categories[index].name,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  children: _products.subMenu.map(_buildList).toList(),
+                );
+              }),
         ),
       );
+
+  Widget _buildList(ProductModel list) {
+    // if (list.name.isEmpty)
+    //   return Builder(builder: (context) {
+    //     return ListTile(
+    //         onTap: () => Navigator.push(
+    //             context,
+    //             MaterialPageRoute(
+    //                 builder: (context) => SubCategory(list.name))),
+    //         leading: SizedBox(),
+    //         title: Text(list.name));
+    //   });
+    return ExpansionTile(
+      title: Text(
+        list.name,
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      ),
+      children: list.subMenu.map(_buildList).toList(),
+    );
+  }
 
   void _createCategoryData() {
     var list = <CategoryModel>[
@@ -122,12 +154,69 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
       CategoryModel(
         image:
             'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Trái cây',
-        id: 'Sữa các loại',
+        name: 'Sữa',
+        id: '1',
       ),
     ];
     setState(() {
       categories = list;
+    });
+  }
+
+  //Set cung data
+  void _createProductData() {
+    var list = <ProductModel>[
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: 'Sữa các loại',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: 'Sữa các loại',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: 'Sữa các loại',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: 'Sữa các loại',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: 'Sữa các loại',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '1'),
+      ProductModel(
+          name: 'Lốc 4 hộp sữa dinh dưỡng',
+          id: 'Sữa các loại',
+          image:
+              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+          price: 10000,
+          description: 'Description of product',
+          categoryId: '1'),
+    ];
+    setState(() {
+      _products = list;
     });
   }
 }

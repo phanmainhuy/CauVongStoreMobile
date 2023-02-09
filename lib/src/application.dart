@@ -1,4 +1,6 @@
 import 'package:cauvongstore_mobile/src/resources/const.dart';
+import 'package:cauvongstore_mobile/src/screen/categories/category_menu/categories_menu_page.dart';
+import 'package:cauvongstore_mobile/src/screen/register/register_page.dart';
 import 'package:cauvongstore_mobile/src/screen/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
               iconTheme: const IconThemeData(color: Colors.white),
             ),
             debugShowCheckedModeBanner: false,
-            home: SplashPage(),
+            home: CategoriesMenuPage(),
           );
         }
         // Otherwise, show something whilst waiting for initialization to complete
