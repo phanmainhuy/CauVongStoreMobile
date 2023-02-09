@@ -79,7 +79,6 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
         child: Card(
           elevation: 4.0,
           child: ListView.separated(
-              physics: const NeverScrollableScrollPhysics(),
               itemCount: categories.length,
               shrinkWrap: true,
               separatorBuilder: (_, index) => const SizedBox(height: 15),
