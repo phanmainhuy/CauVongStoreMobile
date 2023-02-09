@@ -31,7 +31,7 @@ class _LoginPage extends StatefulWidget {
 }
 
 class __LoginPageState extends State<_LoginPage> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController usernameCtr = TextEditingController();
   TextEditingController passwordCtr = TextEditingController();
   LoginBloc loginBloc = LoginBloc();
