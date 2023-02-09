@@ -12,7 +12,6 @@ import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
 import 'package:cauvongstore_mobile/src/screen/my_order/my_order_page.dart';
 import 'package:cauvongstore_mobile/src/screen/search/search_page.dart';
 import 'package:flutter/material.dart';
-import 'category_item.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {
@@ -265,18 +264,6 @@ class _HomePageState extends State<HomePage> {
                 color: AppColor.kPrimaryColor,
                 fontSize: FontSizeText.fontNormalSize),
           ),
-        ),
-      );
-
-  Widget get _buildCategories => SizedBox(
-        height: 50,
-        child: ListView.separated(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          separatorBuilder: (_, index) => const SizedBox(width: 20),
-          itemCount: categories.length,
-          itemBuilder: (_, index) => CategoryItem(data: categories[index]),
         ),
       );
 
