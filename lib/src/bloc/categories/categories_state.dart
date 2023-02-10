@@ -10,13 +10,11 @@ class CategoriesState {
 
 class CategoriesInitialState extends CategoriesState with EquatableMixin {
   final List<CategoryModel> categoriesModel;
-  final List<ProductModel> productModel;
 
-  CategoriesInitialState(
-      {required this.categoriesModel, required this.productModel});
+  CategoriesInitialState({required this.categoriesModel});
 
   @override
-  List<Object> get props => [categoriesModel, productModel];
+  List<Object> get props => [categoriesModel];
 }
 
 class CategoriesErrorState extends CategoriesState {

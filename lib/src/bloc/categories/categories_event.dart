@@ -11,3 +11,10 @@ class CategoriesInitialEvent extends CategoriesEvent {
   @override
   List<Object> get props => [];
 }
+
+class CategoriesGetProductList extends CategoriesEvent {
+  CategoriesGetProductList();
+
+  @override
+  List<Object> get props => [];
+}

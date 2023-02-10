@@ -132,6 +132,14 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  onExpansionChanged: (bool expanded) {
+                    setState(() {
+                      print('----------expanded---------');
+                      print(index);
+                      print('----------expanded---------');
+                      print(expanded);
+                    });
+                  },
                   children: [
                     //   ..._products.map((e) {
                     //     if (e.categoryId == categories[index].id) {

@@ -15,15 +15,12 @@ class BlocCategories extends Bloc<CategoriesEvent, CategoriesState> {
     switch (event.runtimeType) {
       case CategoriesInitialEvent:
         ResultStatus result = await getListCategories();
-        // ResultStatus resultProduct = await getListProducts();
         print('-----------statusCode BlocCategories----------------');
         print(result.statusCode);
         if (result.statusCode == 200) {
           print('co data ne');
-          List<ProductModel> fakedata = [];
           yield CategoriesInitialState(
             categoriesModel: result.data,
-            productModel: fakedata,
           );
         } else {
           print('Khong load duoc data');
