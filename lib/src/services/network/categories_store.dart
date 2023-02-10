@@ -23,6 +23,7 @@ Future<dynamic> getListCategories() async {
     print(response.statusCode.toString());
     print(jsonDecode(response.body));
     print('---------statusCode_Categories---------');
+    print(" ${json.decode(utf8.decode(response.bodyBytes))}");
 
     if (response.statusCode == APIStatus.apireturnOK) {
       print('have data Categories');

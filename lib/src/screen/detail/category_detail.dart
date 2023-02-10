@@ -10,7 +10,7 @@ class CategoryDetail extends StatelessWidget {
     required this.product,
   }) : super(key: key);
 
-  final ProductModel product;
+  final ProductDataModel product;
   MoneyFormat _moneyFormat = MoneyFormat();
 
   @override
@@ -24,7 +24,7 @@ class CategoryDetail extends StatelessWidget {
               children: [
                 TextSpan(text: "Loại sản phẩm\n".toUpperCase()),
                 TextSpan(
-                  text: product.id,
+                  text: product.id.toString(),
                   style: Theme.of(context)
                       .textTheme
                       .headline5

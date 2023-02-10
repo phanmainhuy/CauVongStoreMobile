@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'body.dart';
 
 class DetailPage extends StatelessWidget {
-  final ProductModel product;
+  final ProductDataModel product;
 
   const DetailPage({Key? key, required this.product}) : super(key: key);
   @override

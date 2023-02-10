@@ -8,14 +8,14 @@ class Description extends StatelessWidget {
     required this.product,
   }) : super(key: key);
 
-  final ProductModel product;
+  final ProductDataModel product;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin),
       child: Text(
-        product.description ?? '',
+        product.salePercent ?? '',
         style: TextStyle(height: 1.5, fontSize: FontSizeText.fontNormalSize),
       ),
     );

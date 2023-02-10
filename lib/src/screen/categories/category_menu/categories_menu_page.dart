@@ -32,7 +32,7 @@ class _CategoriesMenuPage extends StatefulWidget {
 
 class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
   List<CategoryModel> categories = <CategoryModel>[];
-  List<ProductModel> _products = <ProductModel>[];
+  List<ProductDataModel> _products = <ProductDataModel>[];
   BlocCategories _blocCategories = BlocCategories();
 
   @override
@@ -85,7 +85,8 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
               {
                 CategoriesInitialState res = state as CategoriesInitialState;
                 setState(() {
-                  categories = res.CategoriesModel;
+                  categories = res.categoriesModel;
+                  // _products = res.productModel;
                 });
               }
               break;
@@ -132,39 +133,39 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
                     ),
                   ),
                   children: [
-                    ..._products.map((e) {
-                      if (e.categoryId == categories[index].id) {
-                        // return ListTile(
-                        //   title: Text(
-                        //     _products[index].name,
-                        //     style: const TextStyle(fontSize: 17),
-                        //   ),
-                        //   // children: list.subMenu.map(_buildList).toList(),
-                        // );
-                        return ListTile(
-                          onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => ProductModel(list.name))),
-                          },
-                          leading: SizedBox(
-                            width: 70,
-                            height: 70,
-                            child: Image.network(
-                              _products[index].image,
-                            ),
-                          ),
-                          title: Text(
-                            _products[index].name,
-                            style: const TextStyle(
-                              fontSize: 17,
-                            ),
-                          ),
-                        );
-                      }
-                      return const SizedBox.shrink();
-                    }).toList(),
+                    //   ..._products.map((e) {
+                    //     if (e.categoryId == categories[index].id) {
+                    //       // return ListTile(
+                    //       //   title: Text(
+                    //       //     _products[index].name,
+                    //       //     style: const TextStyle(fontSize: 17),
+                    //       //   ),
+                    //       //   // children: list.subMenu.map(_buildList).toList(),
+                    //       // );
+                    //       return ListTile(
+                    //         onTap: () {
+                    //           // Navigator.push(
+                    //           //     context,
+                    //           //     MaterialPageRoute(
+                    //           //         builder: (context) => ProductDataModel(list.name))),
+                    //         },
+                    //         leading: SizedBox(
+                    //           width: 70,
+                    //           height: 70,
+                    //           child: Image.network(
+                    //             _products[index].image,
+                    //           ),
+                    //         ),
+                    //         title: Text(
+                    //           _products[index].name,
+                    //           style: const TextStyle(
+                    //             fontSize: 17,
+                    //           ),
+                    //         ),
+                    //       );
+                    //     }
+                    //     return const SizedBox.shrink();
+                    //   }).toList(),
                   ],
                 );
               }),

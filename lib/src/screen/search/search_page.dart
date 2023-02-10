@@ -15,7 +15,7 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   final searchCtr = TextEditingController();
-  List<ProductModel> _products = <ProductModel>[];
+  List<ProductDataModel> _products = <ProductDataModel>[];
 
   @override
   void initState() {
@@ -107,90 +107,90 @@ class _SearchPageState extends State<SearchPage> {
 
   //Set cung data
   void _createProductData() {
-    var list = <ProductModel>[
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: 'Sữa các loại',
-          image:
-              'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-    ];
-    setState(() {
-      _products = list;
-    });
+    // var list = <ProductDataModel>[
+    //   ProductDataModel(
+    //       name: 'Lốc 4 hộp sữa dinh dưỡng',
+    //       id: 'Sữa các loại',
+    //       image:
+    //           'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+    //       price: 10000,
+    //       description: 'Description of product',
+    //       categoryId: '1'),
+    //   ProductDataModel(
+    //       name: 'Lốc 4 hộp sữa dinh dưỡng',
+    //       id: 'Sữa các loại',
+    //       image:
+    //           'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+    //       price: 10000,
+    //       description: 'Description of product',
+    //       categoryId: '1'),
+    //   ProductDataModel(
+    //       name: 'Lốc 4 hộp sữa dinh dưỡng',
+    //       id: 'Sữa các loại',
+    //       image:
+    //           'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+    //       price: 10000,
+    //       description: 'Description of product',
+    //       categoryId: '1'),
+    //   ProductDataModel(
+    //       name: 'Lốc 4 hộp sữa dinh dưỡng',
+    //       id: 'Sữa các loại',
+    //       image:
+    //           'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+    //       price: 10000,
+    //       description: 'Description of product',
+    //       categoryId: '1'),
+    //   ProductDataModel(
+    //       name: 'Lốc 4 hộp sữa dinh dưỡng',
+    //       id: 'Sữa các loại',
+    //       image:
+    //           'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+    //       price: 10000,
+    //       description: 'Description of product',
+    //       categoryId: '1'),
+    //   ProductDataModel(
+    //       name: 'Lốc 4 hộp sữa dinh dưỡng',
+    //       id: 'Sữa các loại',
+    //       image:
+    //           'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+    //       price: 10000,
+    //       description: 'Description of product',
+    //       categoryId: '1'),
+    //   ProductDataModel(
+    //       name: 'Lốc 4 hộp sữa dinh dưỡng',
+    //       id: 'Sữa các loại',
+    //       image:
+    //           'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+    //       price: 10000,
+    //       description: 'Description of product',
+    //       categoryId: '1'),
+    //   ProductDataModel(
+    //       name: 'Lốc 4 hộp sữa dinh dưỡng',
+    //       id: 'Sữa các loại',
+    //       image:
+    //           'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+    //       price: 10000,
+    //       description: 'Description of product',
+    //       categoryId: '1'),
+    //   ProductDataModel(
+    //       name: 'Lốc 4 hộp sữa dinh dưỡng',
+    //       id: 'Sữa các loại',
+    //       image:
+    //           'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+    //       price: 10000,
+    //       description: 'Description of product',
+    //       categoryId: '1'),
+    //   ProductDataModel(
+    //       name: 'Lốc 4 hộp sữa dinh dưỡng',
+    //       id: 'Sữa các loại',
+    //       image:
+    //           'https://cdn.tgdd.vn/Products/Images/2386/80493/bhx/loc-4-hop-sua-tuoi-tiet-trung-khong-duong-dutch-lady-180ml-202104150826346937.jpg',
+    //       price: 10000,
+    //       description: 'Description of product',
+    //       categoryId: '1'),
+    // ];
+    // setState(() {
+    //   _products = list;
+    // });
   }
 }

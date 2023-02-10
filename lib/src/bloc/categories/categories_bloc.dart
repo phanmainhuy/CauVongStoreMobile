@@ -3,6 +3,7 @@ import 'package:cauvongstore_mobile/src/bloc/categories/categories_event.dart';
 import 'package:cauvongstore_mobile/src/bloc/categories/categories_state.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/services/network/categories_store.dart';
+import 'package:cauvongstore_mobile/src/services/network/products_store.dart';
 import 'package:equatable/equatable.dart';
 
 class BlocCategories extends Bloc<CategoriesEvent, CategoriesState> {
@@ -13,11 +14,15 @@ class BlocCategories extends Bloc<CategoriesEvent, CategoriesState> {
     switch (event.runtimeType) {
       case CategoriesInitialEvent:
         ResultStatus result = await getListCategories();
+        // ResultStatus resultProduct = await getListProducts();
         print('-----------statusCode BlocCategories----------------');
         print(result.statusCode);
         if (result.statusCode == 200) {
           print('co data ne');
-          yield CategoriesInitialState(CategoriesModel: result.data);
+          yield CategoriesInitialState(
+            categoriesModel: result.data,
+            productModel: result.data,
+          );
         } else {
           print('Khong load duoc data');
           yield CategoriesErrorState(message: 'Khong load duoc data');

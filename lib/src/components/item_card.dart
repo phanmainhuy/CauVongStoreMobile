@@ -5,7 +5,7 @@ import 'package:cauvongstore_mobile/src/utils/money_format.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatefulWidget {
-  final ProductModel product;
+  final ProductDataModel product;
   final VoidCallback? press;
   int numberBuy = 0;
   MoneyFormat _moneyFormat = MoneyFormat();

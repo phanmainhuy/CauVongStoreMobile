@@ -23,7 +23,7 @@ class _MainPageState extends State<MainPage> {
     'assets/images/slides/slide3.jpg',
     'assets/images/slides/slide4.jpg',
   ];
-  List<ProductModel> _products = <ProductModel>[];
+  List<ProductDataModel> _products = <ProductDataModel>[];
   List<CategoryModel> categories = <CategoryModel>[];
   PageController pageController = PageController();
   int pageIndex = 0;

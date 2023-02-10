@@ -11,7 +11,7 @@ class AddToCart extends StatelessWidget {
     required this.product,
   }) : super(key: key);
 
-  final ProductModel product;
+  final ProductDataModel product;
 
   @override
   Widget build(BuildContext context) {
