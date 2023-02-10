@@ -24,3 +24,14 @@ class MyDeviceUI {
   double get deviceHeight => MediaQuery.of(context).size.height;
   Size get size => MediaQuery.of(context).size;
 }
+
+class ResultStatus {
+  int statusCode;
+  dynamic data;
+
+  ResultStatus({required this.statusCode, this.data});
+
+  factory ResultStatus.fromData(int code, [dynamic data]) {
+    return ResultStatus(statusCode: code, data: data);
+  }
+}

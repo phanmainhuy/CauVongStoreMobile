@@ -1,6 +1,8 @@
 // import 'package:cauvongstore_mobile/src/services/local/shared_prefs.dart';
+import 'package:cauvongstore_mobile/src/bloc/categories/categories_bloc.dart';
 import 'package:cauvongstore_mobile/src/bloc/login/login_bloc.dart';
 import 'package:cauvongstore_mobile/src/bloc/register/register_bloc.dart';
+import 'package:cauvongstore_mobile/src/screen/categories/category_menu/categories_menu_page.dart';
 import 'package:cauvongstore_mobile/src/screen/home/home_page.dart';
 import 'package:cauvongstore_mobile/src/screen/login/login_page.dart';
 import 'package:cauvongstore_mobile/src/screen/register/register_page.dart';
@@ -32,6 +34,10 @@ void main() async {
         BlocProvider(
           create: (_) => RegisterBloc(),
           child: RegisterPage(),
+        ),
+        BlocProvider(
+          create: (_) => BlocCategories(),
+          child: CategoriesMenuPage(),
         ),
       ],
     ),

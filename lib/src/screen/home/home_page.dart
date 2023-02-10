@@ -37,7 +37,6 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _createProductData();
-    _createCategoryData();
   }
 
   @override
@@ -266,56 +265,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       );
-
-  void _createCategoryData() {
-    var list = <CategoryModel>[
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Trái cây',
-        id: 'Sữa các loại',
-      ),
-      CategoryModel(
-        image:
-            'https://tapchicongthuong.vn/images/19/9/19/6-mon-tuyet-doi-dung-nau-voi-thit-lon.jpg',
-        name: 'Thit',
-        id: 'Sữa các loại',
-      ),
-      CategoryModel(
-        image:
-            'https://cdn.tgdd.vn/Files/2017/10/26/1036030/rau-xa-lach-cong-dung-va-cach-phan-biet-cac-loai-xa-lach-202201191047303747.jpg',
-        name: 'Rau',
-        id: 'Sữa các loại',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Trái cây',
-        id: 'Sữa các loại',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Trái cây',
-        id: 'Sữa các loại',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Trái cây',
-        id: 'Sữa các loại',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Trái cây',
-        id: 'Sữa các loại',
-      ),
-    ];
-    setState(() {
-      categories = list;
-    });
-  }
 
   //Set cung data
   void _createProductData() {

@@ -1,11 +1,10 @@
 import 'dart:convert';
 
 import 'package:cauvongstore_mobile/src/resources/api.dart';
+import 'package:cauvongstore_mobile/src/resources/key_local_storage.dart';
 import 'package:cauvongstore_mobile/src/resources/storage.dart';
 import 'package:cauvongstore_mobile/src/utils/result_check.dart';
 import 'package:http/http.dart' as http;
-
-import '../../resources/key_local_storage.dart';
 
 Future<dynamic> doLogin(String phoneNumber, String password) async {
   try {

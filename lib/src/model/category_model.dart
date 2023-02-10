@@ -1,19 +1,26 @@
 class CategoryModel {
-  final String image;
+  final int id;
   final String name;
-  final String id;
+  final String image;
+  final String? deleted;
 
   CategoryModel({
-    required this.image,
-    required this.name,
     required this.id,
+    required this.name,
+    required this.image,
+    this.deleted,
   });
 
-  factory CategoryModel.fromJson({required Map<String, dynamic> data}) {
+  factory CategoryModel.fromJson(Map<String, dynamic> data) {
     return CategoryModel(
       id: data['id'],
       name: data['name'],
       image: data['image'],
+      deleted: data['deletedAt'] ?? '',
     );
+  }
+
+  static List<CategoryModel> fromJsonList(List resultList) {
+    return resultList.map((data) => CategoryModel.fromJson(data)).toList();
   }
 }

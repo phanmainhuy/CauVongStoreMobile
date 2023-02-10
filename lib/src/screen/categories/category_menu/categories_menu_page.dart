@@ -1,11 +1,16 @@
+import 'package:cauvongstore_mobile/src/bloc/categories/categories_bloc.dart';
+import 'package:cauvongstore_mobile/src/bloc/categories/categories_event.dart';
+import 'package:cauvongstore_mobile/src/bloc/categories/categories_state.dart';
 import 'package:cauvongstore_mobile/src/model/category_model.dart';
 import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/app_color.dart';
+import 'package:cauvongstore_mobile/src/resources/app_dialog.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/screen/cart/cart_page.dart';
 import 'package:cauvongstore_mobile/src/screen/search/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoriesMenuPage extends StatelessWidget {
   const CategoriesMenuPage({Key? key}) : super(key: key);
@@ -28,11 +33,20 @@ class _CategoriesMenuPage extends StatefulWidget {
 class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
   List<CategoryModel> categories = <CategoryModel>[];
   List<ProductModel> _products = <ProductModel>[];
+  BlocCategories _blocCategories = BlocCategories();
 
   @override
   void initState() {
     super.initState();
-    _createCategoryData();
+    categories = [];
+    _blocCategories = BlocCategories();
+    _blocCategories.add(CategoriesInitialEvent());
+  }
+
+  @override
+  void dispose() {
+    _blocCategories.close();
+    super.dispose();
   }
 
   @override
@@ -63,12 +77,38 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
           const SizedBox(width: kDefaultPaddin / 2)
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: _buildCard,
-          ),
-        ],
+      body: BlocListener<BlocCategories, CategoriesState>(
+        cubit: _blocCategories,
+        listener: (context, state) async {
+          switch (state.runtimeType) {
+            case CategoriesInitialState:
+              {
+                CategoriesInitialState res = state as CategoriesInitialState;
+                setState(() {
+                  categories = res.CategoriesModel;
+                });
+              }
+              break;
+            case CategoriesErrorState:
+              {
+                String message = (state as CategoriesErrorState).message;
+                // DispErrorMsg.show(msg: message);
+                bool result =
+                    await DispErrorMsg.show(msg: message, context: context);
+                if (result) {
+                  // loadData();
+                }
+              }
+              break;
+          }
+        },
+        child: Column(
+          children: [
+            Expanded(
+              child: _buildCard,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -130,136 +170,4 @@ class __CategoriesMenuPageState extends State<_CategoriesMenuPage> {
               }),
         ),
       );
-
-  void _createCategoryData() {
-    var listCategories = <CategoryModel>[
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Trái cây',
-        id: '2',
-      ),
-      CategoryModel(
-        image:
-            'https://tapchicongthuong.vn/images/19/9/19/6-mon-tuyet-doi-dung-nau-voi-thit-lon.jpg',
-        name: 'Thịt',
-        id: '3',
-      ),
-      CategoryModel(
-        image:
-            'https://cdn.tgdd.vn/Files/2017/10/26/1036030/rau-xa-lach-cong-dung-va-cach-phan-biet-cac-loai-xa-lach-202201191047303747.jpg',
-        name: 'Rau',
-        id: '4',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Sữa',
-        id: '1',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Test',
-        id: '5',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Test',
-        id: '7',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Test',
-        id: '8',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Test',
-        id: '11',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Test',
-        id: '12',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Test',
-        id: '13',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Test',
-        id: '14',
-      ),
-      CategoryModel(
-        image:
-            'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-        name: 'Test',
-        id: '15',
-      ),
-    ];
-    var listProduct = <ProductModel>[
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: '1',
-          image:
-              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: '9',
-          image:
-              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa chua dinh dưỡng',
-          id: '0',
-          image:
-              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: '2',
-          image:
-              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: '2',
-          image:
-              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '1'),
-      ProductModel(
-          name: 'Lốc 4 hộp sữa dinh dưỡng',
-          id: '2',
-          image:
-              'https://image.thanhnien.vn/w1024/Uploaded/2023/wpxlcqjwq/2022_04_10/rau-2229.jpg',
-          price: 10000,
-          description: 'Description of product',
-          categoryId: '2'),
-    ];
-
-    setState(() {
-      categories = listCategories;
-      _products = listProduct;
-    });
-  }
 }
