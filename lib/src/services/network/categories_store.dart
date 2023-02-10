@@ -30,7 +30,7 @@ Future<dynamic> getListCategories() async {
       return ResultStatus.fromData(
         response.statusCode,
         CategoryModel.fromJsonList(
-          json.decode(response.body),
+          json.decode(utf8.decode(response.bodyBytes)),
         ),
       );
     } else {

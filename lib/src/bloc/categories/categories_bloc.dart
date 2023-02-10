@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cauvongstore_mobile/src/bloc/categories/categories_event.dart';
 import 'package:cauvongstore_mobile/src/bloc/categories/categories_state.dart';
+import 'package:cauvongstore_mobile/src/model/product_model.dart';
 import 'package:cauvongstore_mobile/src/resources/const.dart';
 import 'package:cauvongstore_mobile/src/services/network/categories_store.dart';
 import 'package:cauvongstore_mobile/src/services/network/products_store.dart';
@@ -19,9 +20,10 @@ class BlocCategories extends Bloc<CategoriesEvent, CategoriesState> {
         print(result.statusCode);
         if (result.statusCode == 200) {
           print('co data ne');
+          List<ProductModel> fakedata = [];
           yield CategoriesInitialState(
             categoriesModel: result.data,
-            productModel: result.data,
+            productModel: fakedata,
           );
         } else {
           print('Khong load duoc data');
